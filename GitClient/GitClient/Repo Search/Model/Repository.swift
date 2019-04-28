@@ -13,7 +13,7 @@ struct BaseResponse: Codable {
     let items: [Repository]?
 }
 
-// MARK: Model
+/// Model representing a GitHub Repository
 struct Repository: Codable {
     
     let name: String
