@@ -8,6 +8,7 @@
 
 import RxSwift
 import Alamofire
+import AlamofireImage
 
 protocol ApiInterface : class {
     
@@ -27,6 +28,9 @@ protocol ApiInterface : class {
     /// - parameter repositoryName: Represents the repository full name.
     func fetchPullRequets(byRepositoryName repositoryName:String) -> Observable<[Issue]>
 
+    /// Load Remote image by url string
+    /// - parameter url : fetch .
+    func fetchRemoteImage(withUrl urlString:String?) -> Observable<UIImage>
 }
 
 class GitHubApi : ApiInterface {
@@ -155,6 +159,23 @@ class GitHubApi : ApiInterface {
                 }
             })
             
+            return Disposables.create()
+        }
+    }
+    
+    @discardableResult
+    func fetchRemoteImage(withUrl urlString:String?) -> Observable<UIImage> {
+        guard let urlString = urlString else { return Observable.error(GitHubApiError.unknown) }
+        
+        return Observable.create { observer -> Disposable in
+            Alamofire.request(urlString).responseImage { response in
+                if let image = response.result.value {
+                    observer.onNext(image)
+                    observer.onCompleted()
+                } else {
+                    observer.onError(GitHubApiError.unknown)
+                }
+            }
             return Disposables.create()
         }
     }

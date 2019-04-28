@@ -16,6 +16,7 @@ protocol RepositoryInformationsInterface: class {
     var repositoryOwnerObservable: Observable<String> {get}
     var repositoryStarsObservable: Observable<String> {get}
     var repositoryForksObservable: Observable<String> {get}
+    var repositoryOwnerAvatar: Observable<UIImage> {get}
 }
 
 protocol RepositoryListsViewModellInterface: class {
@@ -36,6 +37,7 @@ class RepositoryPreviewViewModel: RepositoryListsViewModellInterface, Repository
     let repositoryOwnerObservable: Observable<String>
     let repositoryStarsObservable: Observable<String>
     let repositoryForksObservable: Observable<String>
+    let repositoryOwnerAvatar: Observable<UIImage>
 
     let collaboratorsViewModel: RepositoryPreviewListViewModel<User>
     let issuesViewModel: RepositoryPreviewListViewModel<Issue>
@@ -48,11 +50,12 @@ class RepositoryPreviewViewModel: RepositoryListsViewModellInterface, Repository
         self.repository = repository
         
         repositoryFullNameObservable = Observable.just(repository.fullName)
-        repositoryDescriptionObservable = Observable.just(repository.fullName)
+        repositoryDescriptionObservable = Observable.just(repository.description)
         repositoryOwnerObservable = Observable.just(repository.owner.login)
         repositoryStarsObservable = Observable.just("\(repository.starsCount)")
         repositoryForksObservable = Observable.just("\(repository.forksCount)")
-
+        repositoryOwnerAvatar = api.fetchRemoteImage(withUrl: repository.owner.avatarUrlString)
+        
         let collaboratorsObseravle = api.fetchContributors(byRepositoryName: repository.fullName)
         collaboratorsViewModel = RepositoryPreviewListViewModel(apiCallObservable: collaboratorsObseravle,
                                                                 previewListTitle: R.string.localizable.repositoryPreviewContributors())
