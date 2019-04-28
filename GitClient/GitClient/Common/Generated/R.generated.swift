@@ -55,8 +55,8 @@ struct R: Rswift.Validatable {
     static let collaboratorTableViewCell = _R.nib._CollaboratorTableViewCell()
     /// Nib `IssueTableViewCell`.
     static let issueTableViewCell = _R.nib._IssueTableViewCell()
-    /// Nib `RepositoryInformationsViewViewController`.
-    static let repositoryInformationsViewViewController = _R.nib._RepositoryInformationsViewViewController()
+    /// Nib `RepositoryInformationsView`.
+    static let repositoryInformationsView = _R.nib._RepositoryInformationsView()
     /// Nib `RepositoryPreviewTableView`.
     static let repositoryPreviewTableView = _R.nib._RepositoryPreviewTableView()
     /// Nib `RepositoryPreviewView`.
@@ -76,10 +76,10 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.issueTableViewCell)
     }
     
-    /// `UINib(name: "RepositoryInformationsViewViewController", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.repositoryInformationsViewViewController) instead")
-    static func repositoryInformationsViewViewController(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.repositoryInformationsViewViewController)
+    /// `UINib(name: "RepositoryInformationsView", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.repositoryInformationsView) instead")
+    static func repositoryInformationsView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.repositoryInformationsView)
     }
     
     /// `UINib(name: "RepositoryPreviewTableView", in: bundle)`
@@ -108,8 +108,8 @@ struct R: Rswift.Validatable {
       return R.nib.issueTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? IssueTableViewCell
     }
     
-    static func repositoryInformationsViewViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-      return R.nib.repositoryInformationsViewViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    static func repositoryInformationsView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.repositoryInformationsView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
     
     static func repositoryPreviewTableView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -241,9 +241,9 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct _RepositoryInformationsViewViewController: Rswift.NibResourceType {
+    struct _RepositoryInformationsView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
-      let name = "RepositoryInformationsViewViewController"
+      let name = "RepositoryInformationsView"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView

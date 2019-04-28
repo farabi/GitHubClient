@@ -11,7 +11,7 @@ import XLPagerTabStrip
 
 class RepositoryPreviewView: ButtonBarPagerTabStripViewController {
 
-    public var viewModel:RepositoryPreviewViewModellInterface?
+    public var viewModel:RepositoryListsViewModellInterface?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +26,8 @@ class RepositoryPreviewView: ButtonBarPagerTabStripViewController {
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
 
-        let informationsView = RepositoryInformationsViewViewController()
-        informationsView.viewModel = viewModel
+        let informationsView = RepositoryInformationsView()
+        informationsView.viewModel = viewModel as? RepositoryInformationsInterface
         
         let collaboratorsView = RepositoryPreviewTableView<User, CollaboratorTableViewCell>()
         collaboratorsView.viewModel = viewModel?.collaboratorsViewModel
