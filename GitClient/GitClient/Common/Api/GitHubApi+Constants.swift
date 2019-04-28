@@ -18,6 +18,7 @@ extension GitHubApi {
         case branches = "/repos/%@/branches"
         case contributors = "/repos/%@/contributors"
         case issues = "/repos/%@/issues"
+        case pullRequests = "/repos/%@/pulls"
         
         func path(withParameter parameter:String) -> String {
             return String(format: Constant.baseUrl+rawValue, parameter)

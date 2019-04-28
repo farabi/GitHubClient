@@ -10,12 +10,23 @@ import RxSwift
 import Alamofire
 
 protocol ApiInterface : class {
+    
     /// Call GitHub Rest api to search for public repository.
     /// - parameter query: key for the repository we are searching for.
     func searchRepository(withQuery query:String) -> Observable<[Repository]>
+    
     /// Call GitHub Rest api to get a repository contibutors.
     /// - parameter repositoryName: Represents the repository full name.
     func fetchContributors(byRepositoryName repositoryName:String) -> Observable<[User]>
+    
+    /// Call GitHub Rest api to get a repository Issues.
+    /// - parameter repositoryName: Represents the repository full name.
+    func fetchIssues(byRepositoryName repositoryName:String) -> Observable<[Issue]>
+    
+    /// Call GitHub Rest api to get a Pull Requests.
+    /// - parameter repositoryName: Represents the repository full name.
+    func fetchPullRequets(byRepositoryName repositoryName:String) -> Observable<[Issue]>
+
 }
 
 class GitHubApi : ApiInterface {
@@ -76,6 +87,68 @@ class GitHubApi : ApiInterface {
                 do {
                     let collaborators = try JSONDecoder().decode([User].self, from: responseData)
                     observer.onNext(collaborators)
+                    observer.onCompleted()
+                } catch {
+                    observer.onError(GitHubApiError.parsingError)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
+    
+    @discardableResult
+    func fetchIssues(byRepositoryName repositoryName:String) -> Observable<[Issue]> {
+        
+        return Observable.create { observer -> Disposable in
+            
+            let requestUrlString = Constant.issues.path(withParameter: repositoryName)
+            Alamofire.request(requestUrlString).responseData(completionHandler: { response in
+                
+                if let error = response.error {
+                    observer.onError(error)
+                    return
+                }
+                
+                guard let responseData = response.result.value else {
+                    observer.onError(GitHubApiError.unknown)
+                    return
+                }
+                
+                do {
+                    let issues = try JSONDecoder().decode([Issue].self, from: responseData)
+                    observer.onNext(issues)
+                    observer.onCompleted()
+                } catch {
+                    observer.onError(GitHubApiError.parsingError)
+                }
+            })
+            
+            return Disposables.create()
+        }
+    }
+    
+    @discardableResult
+    func fetchPullRequets(byRepositoryName repositoryName:String) -> Observable<[Issue]> {
+        
+        return Observable.create { observer -> Disposable in
+            
+            let requestUrlString = Constant.pullRequests.path(withParameter: repositoryName)
+            Alamofire.request(requestUrlString).responseData(completionHandler: { response in
+                
+                if let error = response.error {
+                    observer.onError(error)
+                    return
+                }
+                
+                guard let responseData = response.result.value else {
+                    observer.onError(GitHubApiError.unknown)
+                    return
+                }
+                
+                do {
+                    let issues = try JSONDecoder().decode([Issue].self, from: responseData)
+                    observer.onNext(issues)
                     observer.onCompleted()
                 } catch {
                     observer.onError(GitHubApiError.parsingError)

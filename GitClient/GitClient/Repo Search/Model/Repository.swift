@@ -36,15 +36,3 @@ struct Repository: Codable {
         case owner
     }
 }
-
-struct User: Codable {
-    
-    let login: String
-    let avatarUrlString: String?
-    let contributionsCount: Int?
-    enum CodingKeys: String, CodingKey {
-        case login
-        case avatarUrlString = "avatar_url"
-        case contributionsCount = "contributions"
-    }
-}

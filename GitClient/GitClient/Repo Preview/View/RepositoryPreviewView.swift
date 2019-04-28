@@ -19,18 +19,26 @@ class RepositoryPreviewView: ButtonBarPagerTabStripViewController {
     }
     
     func buttonBarPagerCustomAppearance() {
-        settings.style.buttonBarItemBackgroundColor = R.color.githubLightGray()
+        settings.style.buttonBarItemBackgroundColor = .white
         settings.style.buttonBarItemTitleColor = R.color.gitHubTextGray()
         buttonBarView.selectedBar.backgroundColor = R.color.gitHubClientBlue()
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let collaboratorsView = RepositoryPreviewTableView<User>()
-        collaboratorsView.viewModel = viewModel?.collaboratorsViewModel
 
-        let child_2 = RepositoryPreviewTableView<User>()
+        let informationsView = RepositoryInformationsViewViewController()
+        informationsView.viewModel = viewModel
         
-        return [collaboratorsView, child_2]
+        let collaboratorsView = RepositoryPreviewTableView<User, CollaboratorTableViewCell>()
+        collaboratorsView.viewModel = viewModel?.collaboratorsViewModel
+        
+        let issuesView = RepositoryPreviewTableView<Issue, IssueTableViewCell>()
+        issuesView.viewModel = viewModel?.issuesViewModel
+
+        let pullRequetsView = RepositoryPreviewTableView<Issue, IssueTableViewCell>()
+        pullRequetsView.viewModel = viewModel?.pullRequetsViewModel
+
+        
+        return [informationsView, collaboratorsView, issuesView, pullRequetsView]
     }
-    
 }

@@ -10,7 +10,11 @@ import XLPagerTabStrip
 import RxCocoa
 import RxSwift
 
-class RepositoryPreviewTableView<Model>: UITableViewController, IndicatorInfoProvider  where Model: Codable {
+protocol RepositoryPreviewCell where Self: UITableViewCell {
+    func setViewModel(model:Codable)
+}
+
+class RepositoryPreviewTableView<Model, PreviewCell>: UITableViewController, IndicatorInfoProvider  where Model: Codable, PreviewCell: RepositoryPreviewCell {
     
     private let disposeBag = DisposeBag()
     
@@ -28,15 +32,14 @@ class RepositoryPreviewTableView<Model>: UITableViewController, IndicatorInfoPro
         tableView.dataSource = nil
 
         /// Bind content tableView to listDataDriver.
-        tableView.registerCell(UITableViewCell.self)
-        viewModel.listDataDriver.drive(tableView.rx.items(cellIdentifier: UITableViewCell.reuseIdentifier,
-                                                          cellType: UITableViewCell.self)){  _, model, cell in
-                cell.textLabel?.text = "test"
+        tableView.registerCell(PreviewCell.self)
+        viewModel.listDataDriver.drive(tableView.rx.items(cellIdentifier: PreviewCell.reuseIdentifier,
+                                                          cellType: PreviewCell.self)){  _, model, cell in
+                cell.setViewModel(model: model)
         }.disposed(by: disposeBag)
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: viewModel?.previewListTitle)
     }
-    
 }

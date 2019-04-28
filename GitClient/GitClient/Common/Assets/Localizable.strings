@@ -15,4 +15,6 @@
 // GitHub Repository Preview
 
 "RepositoryPreviewContributors" = "Contributors";
-
+"RepositoryPreviewIssues" = "Issues";
+"RepositoryPreviewPullRequests" = "Pull requests";
+"RepositoryPreviewInformations" = "Informations";

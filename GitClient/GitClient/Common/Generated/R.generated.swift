@@ -49,14 +49,38 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
   struct nib {
+    /// Nib `CollaboratorTableViewCell`.
+    static let collaboratorTableViewCell = _R.nib._CollaboratorTableViewCell()
+    /// Nib `IssueTableViewCell`.
+    static let issueTableViewCell = _R.nib._IssueTableViewCell()
+    /// Nib `RepositoryInformationsViewViewController`.
+    static let repositoryInformationsViewViewController = _R.nib._RepositoryInformationsViewViewController()
     /// Nib `RepositoryPreviewTableView`.
     static let repositoryPreviewTableView = _R.nib._RepositoryPreviewTableView()
     /// Nib `RepositoryPreviewView`.
     static let repositoryPreviewView = _R.nib._RepositoryPreviewView()
     /// Nib `SearchRepositoryView`.
     static let searchRepositoryView = _R.nib._SearchRepositoryView()
+    
+    /// `UINib(name: "CollaboratorTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.collaboratorTableViewCell) instead")
+    static func collaboratorTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.collaboratorTableViewCell)
+    }
+    
+    /// `UINib(name: "IssueTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.issueTableViewCell) instead")
+    static func issueTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.issueTableViewCell)
+    }
+    
+    /// `UINib(name: "RepositoryInformationsViewViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.repositoryInformationsViewViewController) instead")
+    static func repositoryInformationsViewViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.repositoryInformationsViewViewController)
+    }
     
     /// `UINib(name: "RepositoryPreviewTableView", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.repositoryPreviewTableView) instead")
@@ -74,6 +98,18 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.searchRepositoryView) instead")
     static func searchRepositoryView(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.searchRepositoryView)
+    }
+    
+    static func collaboratorTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CollaboratorTableViewCell? {
+      return R.nib.collaboratorTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CollaboratorTableViewCell
+    }
+    
+    static func issueTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> IssueTableViewCell? {
+      return R.nib.issueTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? IssueTableViewCell
+    }
+    
+    static func repositoryInformationsViewViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.repositoryInformationsViewViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
     
     static func repositoryPreviewTableView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -106,10 +142,16 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 7 localization keys.
     struct localizable {
       /// Value: Contributors
       static let repositoryPreviewContributors = Rswift.StringResource(key: "RepositoryPreviewContributors", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Informations
+      static let repositoryPreviewInformations = Rswift.StringResource(key: "RepositoryPreviewInformations", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Issues
+      static let repositoryPreviewIssues = Rswift.StringResource(key: "RepositoryPreviewIssues", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Pull requests
+      static let repositoryPreviewPullRequests = Rswift.StringResource(key: "RepositoryPreviewPullRequests", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Request Validation Failed.
       static let apiErrorWrongRequest = Rswift.StringResource(key: "apiErrorWrongRequest", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: There was an error parsing this response.
@@ -120,6 +162,21 @@ struct R: Rswift.Validatable {
       /// Value: Contributors
       static func repositoryPreviewContributors(_: Void = ()) -> String {
         return NSLocalizedString("RepositoryPreviewContributors", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Informations
+      static func repositoryPreviewInformations(_: Void = ()) -> String {
+        return NSLocalizedString("RepositoryPreviewInformations", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Issues
+      static func repositoryPreviewIssues(_: Void = ()) -> String {
+        return NSLocalizedString("RepositoryPreviewIssues", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Pull requests
+      static func repositoryPreviewPullRequests(_: Void = ()) -> String {
+        return NSLocalizedString("RepositoryPreviewPullRequests", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Request Validation Failed.
@@ -162,6 +219,39 @@ struct _R: Rswift.Validatable {
   }
   
   struct nib {
+    struct _CollaboratorTableViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "CollaboratorTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CollaboratorTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CollaboratorTableViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _IssueTableViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "IssueTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> IssueTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? IssueTableViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _RepositoryInformationsViewViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "RepositoryInformationsViewViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _RepositoryPreviewTableView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "RepositoryPreviewTableView"
