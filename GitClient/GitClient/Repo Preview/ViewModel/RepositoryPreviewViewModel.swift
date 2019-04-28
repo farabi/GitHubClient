@@ -11,25 +11,16 @@ import RxSwift
 
 
 protocol RepositoryPreviewViewModellInterface: class {
-    
-}
-
-class RepositoryPreviewListViewModel<Model> where Model: Codable {
-
-    let listDataDriver:Driver<[Model]>
-
-    init(apiCallObservable: Observable<[Model]>) {
-        listDataDriver = apiCallObservable.asDriver(onErrorJustReturn: [])
-    }
+    var collaboratorsViewModel: RepositoryPreviewListViewModel<User> {get}
 }
 
 class RepositoryPreviewViewModel: RepositoryPreviewViewModellInterface {
     
-    private var api:ApiInterface
+    private let api:ApiInterface
     private let coordinator:RepositoryPreviewCoordinator
     private let repository:Repository
     
-    private let collaboratorsViewModel: RepositoryPreviewListViewModel<User>
+    let collaboratorsViewModel: RepositoryPreviewListViewModel<User>
 
     init(repository: Repository, api: ApiInterface, coordinator:RepositoryPreviewCoordinator) {
         
@@ -38,7 +29,8 @@ class RepositoryPreviewViewModel: RepositoryPreviewViewModellInterface {
         self.repository = repository
         
         let collaboratorsObseravle = api.fetchContributors(byRepositoryName: repository.fullName)
-        collaboratorsViewModel = RepositoryPreviewListViewModel(apiCallObservable: collaboratorsObseravle)
+        collaboratorsViewModel = RepositoryPreviewListViewModel(apiCallObservable: collaboratorsObseravle,
+                                                                previewListTitle: R.string.localizable.repositoryPreviewContributors())
     }
     
 }

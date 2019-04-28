@@ -16,15 +16,34 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.file` struct is generated, and contains static references to 1 files.
-  struct file {
-    /// Resource file `Colors.xml`.
-    static let colorsXml = Rswift.FileResource(bundle: R.hostingBundle, name: "Colors", pathExtension: "xml")
+  /// This `R.color` struct is generated, and contains static references to 3 colors.
+  struct color {
+    /// Color `GitHubClientBlue`.
+    static let gitHubClientBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "GitHubClientBlue")
+    /// Color `GitHubTextGray`.
+    static let gitHubTextGray = Rswift.ColorResource(bundle: R.hostingBundle, name: "GitHubTextGray")
+    /// Color `GithubLightGray`.
+    static let githubLightGray = Rswift.ColorResource(bundle: R.hostingBundle, name: "GithubLightGray")
     
-    /// `bundle.url(forResource: "Colors", withExtension: "xml")`
-    static func colorsXml(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.colorsXml
-      return fileResource.bundle.url(forResource: fileResource)
+    /// `UIColor(named: "GitHubClientBlue", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func gitHubClientBlue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.gitHubClientBlue, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "GitHubTextGray", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func gitHubTextGray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.gitHubTextGray, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "GithubLightGray", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func githubLightGray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.githubLightGray, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
