@@ -38,16 +38,6 @@
                ReferencedContainer = "container:GitClient.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "93FED5572273177C009DF9D9"
-               BuildableName = "GitClientUITests.xctest"
-               BlueprintName = "GitClientUITests"
-               ReferencedContainer = "container:GitClient.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
