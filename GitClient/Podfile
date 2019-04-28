@@ -21,7 +21,9 @@ target 'GitClient' do
 
   target 'GitClientTests' do
     inherit! :search_paths
-    # Pods for testing
+    # Unit Tests Framewoks
+    pod 'Quick'
+    pod 'RxNimble'
   end
 
   target 'GitClientUITests' do

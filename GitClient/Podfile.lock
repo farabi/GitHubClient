@@ -2,19 +2,33 @@ PODS:
   - Alamofire (4.8.2)
   - AlamofireImage (3.5.2):
     - Alamofire (~> 4.8)
+  - Nimble (7.3.4)
+  - Quick (2.0.0)
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
+  - RxBlocking (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxNimble (4.4.0):
+    - RxNimble/RxBlocking (= 4.4.0)
+  - RxNimble/Core (4.4.0):
+    - Nimble (~> 7.0)
+    - RxSwift (~> 4.2)
+  - RxNimble/RxBlocking (4.4.0):
+    - RxBlocking
+    - RxNimble/Core
   - RxSwift (4.5.0)
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - Quick
   - R.swift (~> 5.0.3)
   - RxCocoa (~> 4.5.0)
+  - RxNimble
   - RxSwift (~> 4.5.0)
   - XLPagerTabStrip (~> 9.0)
 
@@ -22,21 +36,29 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
+    - Nimble
+    - Quick
     - R.swift
     - R.swift.Library
+    - RxBlocking
     - RxCocoa
+    - RxNimble
     - RxSwift
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
+  Quick: ce1276c7c27ba2da3cb2fd0cde053c3648b3b22d
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
+  RxBlocking: 79413e4d916f44bb3e113c5b2cc059e36fe58910
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxNimble: ba6caf0195c37fd50dd4b967624b66ff580d781a
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: ec1e4a23ade91dd9c1e8e5835bca3a34b289e004
+PODFILE CHECKSUM: 8d7122006d77fa9ada501f33be17c6cc32621c61
 
 COCOAPODS: 1.6.1

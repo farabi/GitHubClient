@@ -41,6 +41,8 @@
 		93FED5C62275F4EC009DF9D9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5C52275F4EC009DF9D9 /* User.swift */; };
 		93FED5CE2275FBE3009DF9D9 /* RepositoryInformationsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93FED5CC2275FBE3009DF9D9 /* RepositoryInformationsView.xib */; };
 		93FED5CF22761071009DF9D9 /* RepositoryInformationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5CB2275FBE3009DF9D9 /* RepositoryInformationsView.swift */; };
+		93FED5D222763C52009DF9D9 /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = 93FED5D122763C52009DF9D9 /* User.json */; };
+		93FED5D422763CDC009DF9D9 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5D322763CDC009DF9D9 /* UserTests.swift */; };
 		AB34BAC164649EEF66BA1C36 /* Pods_GitClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93234E36DAC4AA6B4F438955 /* Pods_GitClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +107,8 @@
 		93FED5C52275F4EC009DF9D9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		93FED5CB2275FBE3009DF9D9 /* RepositoryInformationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInformationsView.swift; sourceTree = "<group>"; };
 		93FED5CC2275FBE3009DF9D9 /* RepositoryInformationsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryInformationsView.xib; sourceTree = "<group>"; };
+		93FED5D122763C52009DF9D9 /* User.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = User.json; sourceTree = "<group>"; };
+		93FED5D322763CDC009DF9D9 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		A2E6E201EC210A78AE03AA51 /* Pods-GitClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClient.release.xcconfig"; path = "Target Support Files/Pods-GitClient/Pods-GitClient.release.xcconfig"; sourceTree = "<group>"; };
 		BFEC8D590128F651464E2BC9 /* Pods-GitClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClientUITests.debug.xcconfig"; path = "Target Support Files/Pods-GitClientUITests/Pods-GitClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D134C3BF8D4548787955E12A /* Pods-GitClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClientUITests.release.xcconfig"; path = "Target Support Files/Pods-GitClientUITests/Pods-GitClientUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,8 +180,10 @@
 		93FED5502273177C009DF9D9 /* GitClientTests */ = {
 			isa = PBXGroup;
 			children = (
+				93FED5D022763BDC009DF9D9 /* Json */,
 				93FED5512273177C009DF9D9 /* GitClientTests.swift */,
 				93FED5532273177C009DF9D9 /* Info.plist */,
+				93FED5D322763CDC009DF9D9 /* UserTests.swift */,
 			);
 			path = GitClientTests;
 			sourceTree = "<group>";
@@ -353,6 +359,14 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		93FED5D022763BDC009DF9D9 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				93FED5D122763C52009DF9D9 /* User.json */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
 		BD8CAB7ECEFD6278F079A040 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +421,7 @@
 				93FED5492273177C009DF9D9 /* Sources */,
 				93FED54A2273177C009DF9D9 /* Frameworks */,
 				93FED54B2273177C009DF9D9 /* Resources */,
+				A07D46B6701F134AED4113C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -501,6 +516,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93FED5D222763C52009DF9D9 /* User.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +588,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$PROJECT_DIR/$TARGET_NAME/Common/Generated/R.generated.swift,
+				"$PROJECT_DIR/$TARGET_NAME/Common/Generated/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -608,6 +624,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GitClient/Pods-GitClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A07D46B6701F134AED4113C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GitClientTests/Pods-GitClientTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxNimble/RxNimble.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxNimble.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GitClientTests/Pods-GitClientTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DCCEAAAD480DCFE16E070FEE /* [CP] Check Pods Manifest.lock */ = {
@@ -667,6 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93FED5D422763CDC009DF9D9 /* UserTests.swift in Sources */,
 				93FED5522273177C009DF9D9 /* GitClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
