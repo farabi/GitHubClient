@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  GitClient
+
+  Created by Saad El Oulladi on 26/04/2019.
+  Copyright © 2019 Saad El Oulladi. All rights reserved.
+*/
+
+// GitHub Api 
+
+"apiErrorWrongRequest" = "Request Validation Failed.";
+"apiErrorParsing" = "There was an error parsing this response.";
+"apiErrorUnknown" = "Unknown Api Error.";
+
+// GitHub Repository Preview
+
+"RepositoryPreviewContributors" = "Contributors";
+
