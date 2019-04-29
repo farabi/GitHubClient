@@ -47,6 +47,8 @@
 		93FED5DE22765D95009DF9D9 /* BaseModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5DD22765D95009DF9D9 /* BaseModelTests.swift */; };
 		93FED5E022765E99009DF9D9 /* IssueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5DF22765E99009DF9D9 /* IssueTests.swift */; };
 		93FED5E322768B7B009DF9D9 /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5E222768B7B009DF9D9 /* UIViewController+Additions.swift */; };
+		93FED5E52276A562009DF9D9 /* SearchRepositoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5E42276A562009DF9D9 /* SearchRepositoryViewModelTests.swift */; };
+		93FED5E72276AD12009DF9D9 /* FakeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5E62276AD12009DF9D9 /* FakeApi.swift */; };
 		AB34BAC164649EEF66BA1C36 /* Pods_GitClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93234E36DAC4AA6B4F438955 /* Pods_GitClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,8 +74,6 @@
 		93FED5482273177C009DF9D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93FED54D2273177C009DF9D9 /* GitClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93FED5532273177C009DF9D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93FED55C2273177C009DF9D9 /* GitClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitClientUITests.swift; sourceTree = "<group>"; };
-		93FED55E2273177C009DF9D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93FED56E22731AFC009DF9D9 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		93FED57722732259009DF9D9 /* GitHubApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApi.swift; sourceTree = "<group>"; };
 		93FED579227322AF009DF9D9 /* GitHubApi+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GitHubApi+Error.swift"; sourceTree = "<group>"; };
@@ -111,6 +111,8 @@
 		93FED5DD22765D95009DF9D9 /* BaseModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelTests.swift; sourceTree = "<group>"; };
 		93FED5DF22765E99009DF9D9 /* IssueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTests.swift; sourceTree = "<group>"; };
 		93FED5E222768B7B009DF9D9 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
+		93FED5E42276A562009DF9D9 /* SearchRepositoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryViewModelTests.swift; sourceTree = "<group>"; };
+		93FED5E62276AD12009DF9D9 /* FakeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeApi.swift; sourceTree = "<group>"; };
 		A2E6E201EC210A78AE03AA51 /* Pods-GitClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClient.release.xcconfig"; path = "Target Support Files/Pods-GitClient/Pods-GitClient.release.xcconfig"; sourceTree = "<group>"; };
 		BFEC8D590128F651464E2BC9 /* Pods-GitClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClientUITests.debug.xcconfig"; path = "Target Support Files/Pods-GitClientUITests/Pods-GitClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D134C3BF8D4548787955E12A /* Pods-GitClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClientUITests.release.xcconfig"; path = "Target Support Files/Pods-GitClientUITests/Pods-GitClientUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,7 +144,6 @@
 			children = (
 				93FED53B2273177B009DF9D9 /* GitClient */,
 				93FED5502273177C009DF9D9 /* GitClientTests */,
-				93FED55B2273177C009DF9D9 /* GitClientUITests */,
 				93FED53A2273177B009DF9D9 /* Products */,
 				BD8CAB7ECEFD6278F079A040 /* Pods */,
 				FE56C91A9D7D03455CAA0F61 /* Frameworks */,
@@ -179,17 +180,9 @@
 				93FED5DF22765E99009DF9D9 /* IssueTests.swift */,
 				93FED5D522765738009DF9D9 /* RepositoryTests.swift */,
 				93FED5DD22765D95009DF9D9 /* BaseModelTests.swift */,
+				93FED5E42276A562009DF9D9 /* SearchRepositoryViewModelTests.swift */,
 			);
 			path = GitClientTests;
-			sourceTree = "<group>";
-		};
-		93FED55B2273177C009DF9D9 /* GitClientUITests */ = {
-			isa = PBXGroup;
-			children = (
-				93FED55C2273177C009DF9D9 /* GitClientUITests.swift */,
-				93FED55E2273177C009DF9D9 /* Info.plist */,
-			);
-			path = GitClientUITests;
 			sourceTree = "<group>";
 		};
 		93FED56A22731AB7009DF9D9 /* Common */ = {
@@ -362,6 +355,7 @@
 				93FED5D72276574D009DF9D9 /* Repository.json */,
 				93FED5D9227657AA009DF9D9 /* BaseResponse.json */,
 				93FED5DB227657FC009DF9D9 /* Issue.json */,
+				93FED5E62276AD12009DF9D9 /* FakeApi.swift */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -559,7 +553,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$PROJECT_DIR/$TARGET_NAME/Common/Generated/R.generated.swift,
+				"$PROJECT_DIR/$TARGET_NAME/Common/Generated/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -607,6 +601,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GitClientTests/Pods-GitClientTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/InstantMock/InstantMock.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
@@ -617,6 +612,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantMock.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
@@ -664,9 +660,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				93FED5D422763CDC009DF9D9 /* UserTests.swift in Sources */,
+				93FED5E72276AD12009DF9D9 /* FakeApi.swift in Sources */,
 				93FED5D622765738009DF9D9 /* RepositoryTests.swift in Sources */,
 				93FED5DE22765D95009DF9D9 /* BaseModelTests.swift in Sources */,
 				93FED5E022765E99009DF9D9 /* IssueTests.swift in Sources */,
+				93FED5E52276A562009DF9D9 /* SearchRepositoryViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

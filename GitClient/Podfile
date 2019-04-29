@@ -24,11 +24,7 @@ target 'GitClient' do
     # Unit Tests Framewoks
     pod 'Quick'
     pod 'RxNimble'
-  end
-
-  target 'GitClientUITests' do
-    inherit! :search_paths
-    # Pods for testing
+    pod 'InstantMock'
   end
 
 end
