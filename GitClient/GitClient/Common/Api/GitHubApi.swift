@@ -63,7 +63,9 @@ class GitHubApi: BaseApi, ApiInterface {
 
     @discardableResult
     func searchRepository(withQuery query:String) -> Observable<[Repository]> {
-        let requestUrlString = Constant.search.path(withParameter: query)
+        let escapedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
+        guard !escapedQuery.isEmpty else { return Observable.just([]) }
+        let requestUrlString = Constant.search.path(withParameter: escapedQuery)
         let apiRequestObservable:Observable<BaseResponse> = apiRequest(withUrl: requestUrlString)
         return apiRequestObservable.map { (baseResponse) -> [Repository] in
             guard let repositories = baseResponse.items else {

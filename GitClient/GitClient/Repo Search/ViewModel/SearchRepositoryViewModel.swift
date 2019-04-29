@@ -23,7 +23,6 @@ protocol SearchRepositoryViewModelInterface: class {
 
 class SearchRepositoryViewModel: SearchRepositoryViewModelInterface {
 
-    
     // MARK: - Inputs
     let selectRepositoryObserver: AnyObserver<Repository>
     let searchObserver: AnyObserver<String>
@@ -48,7 +47,6 @@ class SearchRepositoryViewModel: SearchRepositoryViewModelInterface {
                                     .distinctUntilChanged()
                                     .debounce(0.3, scheduler: MainScheduler.instance)
                                     .flatMapLatest { searchText -> Observable<[Repository]> in
-                                        guard !searchText.isEmpty else { return Observable.just([]) }
                                         return api.searchRepository(withQuery: searchText).catchError({ (error) in
                                             alertSubject.onNext(error.localizedDescription)
                                             return Observable.just([])
