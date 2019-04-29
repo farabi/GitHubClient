@@ -13,7 +13,8 @@ import Nimble
 class SearchRepositoryViewModelTests: QuickSpec {
     
     override func spec() {
-        var testSubject: SearchRepositoryViewModel!
+        
+        var testSubject: SearchRepositoryViewModelInterface!
         
         describe("SearchRepositoryViewModel") {
             
@@ -21,22 +22,20 @@ class SearchRepositoryViewModelTests: QuickSpec {
                 
                 beforeEach {
                     let bundle = Bundle(for: type(of: self))
-                    guard let url = bundle.url(forResource: "Issue", withExtension: "json") else {
+                    guard let url = bundle.url(forResource: "BaseResponse", withExtension: "json") else {
                         fail("Json file doesn't exist")
                         return
                     }
                     do {
                         let json = try Data(contentsOf: url)
-                        testSubject = try JSONDecoder().decode(Issue.self, from: json)
+                        let apiResponse = try JSONDecoder().decode(BaseResponse.self, from: json)
+                        //testSubject = SearchRepositoryViewModel(api: <#T##ApiInterface#>, coordinator: <#T##RepositorySearchCoordinatorInterface#>)
                     } catch {
                         fail("Wrong json format")
                     }
                 }
                 
                 it("Should have the expected values") {
-                    expect(testSubject.title).to(equal(FakeData.title))
-                    expect(testSubject.commentsCount).to(equal(FakeData.commentsCount))
-                    expect(testSubject.identifier).to(equal(FakeData.identifier))
                 }
             }
             

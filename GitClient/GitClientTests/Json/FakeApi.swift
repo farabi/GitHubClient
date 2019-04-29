@@ -10,27 +10,28 @@ import XCTest
 import RxSwift
 @testable import GitClient
 
-class VWFakeApi: ApiInterface {
+class FakeApi<Model>: ApiInterface where Model: Codable {
+    
+    var observableToReturn: Observable<Model>!
     
     func searchRepository(withQuery query: String) -> Observable<[Repository]> {
-        <#code#>
+        return observableToReturn as! Observable<[Repository]>
     }
     
     func fetchContributors(byRepositoryName repositoryName: String) -> Observable<[User]> {
-        <#code#>
+        return observableToReturn as! Observable<[User]>
     }
     
     func fetchIssues(byRepositoryName repositoryName: String) -> Observable<[Issue]> {
-        <#code#>
+        return observableToReturn as! Observable<[Issue]>
     }
     
     func fetchPullRequets(byRepositoryName repositoryName: String) -> Observable<[Issue]> {
-        <#code#>
+        return observableToReturn as! Observable<[Issue]>
     }
     
     func fetchRemoteImage(withUrl urlString: String?) -> Observable<UIImage> {
-        <#code#>
+        return Observable.empty()
     }
-    
     
 }

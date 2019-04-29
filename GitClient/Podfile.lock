@@ -2,7 +2,6 @@ PODS:
   - Alamofire (4.8.2)
   - AlamofireImage (3.5.2):
     - Alamofire (~> 4.8)
-  - InstantMock (2.2.3)
   - Nimble (7.3.4)
   - Quick (2.0.0)
   - R.swift (5.0.3):
@@ -26,7 +25,6 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
-  - InstantMock
   - Quick
   - R.swift (~> 5.0.3)
   - RxCocoa (~> 4.5.0)
@@ -38,7 +36,6 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
-    - InstantMock
     - Nimble
     - Quick
     - R.swift
@@ -52,7 +49,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
-  InstantMock: 2060ca959fbe0ce51acd189c7cbde09aa5f39662
   Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
   Quick: ce1276c7c27ba2da3cb2fd0cde053c3648b3b22d
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
@@ -63,6 +59,6 @@ SPEC CHECKSUMS:
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 419040a0d91ed174bdb36ec6c6f93649f101e923
+PODFILE CHECKSUM: 1136df089681f9f2279562eb68f22f639b4fbc8e
 
 COCOAPODS: 1.6.1
