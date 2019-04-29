@@ -20,7 +20,7 @@ class BaseModelTests: QuickSpec {
     override func spec() {
         var testSubject: BaseResponse!
         
-        describe("BaseModel Model") {
+        describe("Given a BaseModel Model") {
             
             context("When parsed from json") {
                 
@@ -38,7 +38,7 @@ class BaseModelTests: QuickSpec {
                     }
                 }
                 
-                it("Should have the expected number of repositories") {
+                it("Then should have the expected number of repositories") {
                     expect(testSubject.items?.count).to(equal(FakeData.repositoriesCount))
                 }
             }

@@ -26,7 +26,7 @@ class RepositoryTests: QuickSpec {
     override func spec() {
         var testSubject: Repository!
         
-        describe("Repository Model") {
+        describe("Given a Repository Model") {
             
             context("When parsed from json") {
                 
@@ -44,7 +44,7 @@ class RepositoryTests: QuickSpec {
                     }
                 }
                 
-                it("Should have the expected values") {
+                it("Then it Should have the expected values") {
                     expect(testSubject.name).to(equal(FakeData.name))
                     expect(testSubject.fullName).to(equal(FakeData.fullName))
                     expect(testSubject.description).to(equal(FakeData.description))

@@ -22,7 +22,7 @@ class IssueTests: QuickSpec {
     override func spec() {
         var testSubject: Issue!
         
-        describe("Issue Model") {
+        describe("Given a Issue Model") {
             
             context("When parsed from json") {
                 
@@ -40,7 +40,7 @@ class IssueTests: QuickSpec {
                     }
                 }
                 
-                it("Should have the expected values") {
+                it("then it Should have the expected values") {
                     expect(testSubject.title).to(equal(FakeData.title))
                     expect(testSubject.commentsCount).to(equal(FakeData.commentsCount))
                     expect(testSubject.identifier).to(equal(FakeData.identifier))

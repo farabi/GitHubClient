@@ -48,7 +48,9 @@
 		93FED5E022765E99009DF9D9 /* IssueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5DF22765E99009DF9D9 /* IssueTests.swift */; };
 		93FED5E322768B7B009DF9D9 /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5E222768B7B009DF9D9 /* UIViewController+Additions.swift */; };
 		93FED5E52276A562009DF9D9 /* SearchRepositoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5E42276A562009DF9D9 /* SearchRepositoryViewModelTests.swift */; };
-		93FED5E72276AD12009DF9D9 /* FakeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5E62276AD12009DF9D9 /* FakeApi.swift */; };
+		93FED5E72276AD12009DF9D9 /* Fakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5E62276AD12009DF9D9 /* Fakes.swift */; };
+		93FED5EF22773C6F009DF9D9 /* RepositoryInformationsInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5EE22773C6F009DF9D9 /* RepositoryInformationsInterfaceTests.swift */; };
+		93FED5F122773E16009DF9D9 /* RepositoryListsViewModellInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED5F022773E16009DF9D9 /* RepositoryListsViewModellInterfaceTests.swift */; };
 		AB34BAC164649EEF66BA1C36 /* Pods_GitClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93234E36DAC4AA6B4F438955 /* Pods_GitClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,7 +114,9 @@
 		93FED5DF22765E99009DF9D9 /* IssueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTests.swift; sourceTree = "<group>"; };
 		93FED5E222768B7B009DF9D9 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		93FED5E42276A562009DF9D9 /* SearchRepositoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryViewModelTests.swift; sourceTree = "<group>"; };
-		93FED5E62276AD12009DF9D9 /* FakeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeApi.swift; sourceTree = "<group>"; };
+		93FED5E62276AD12009DF9D9 /* Fakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fakes.swift; sourceTree = "<group>"; };
+		93FED5EE22773C6F009DF9D9 /* RepositoryInformationsInterfaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryInformationsInterfaceTests.swift; sourceTree = "<group>"; };
+		93FED5F022773E16009DF9D9 /* RepositoryListsViewModellInterfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListsViewModellInterfaceTests.swift; sourceTree = "<group>"; };
 		A2E6E201EC210A78AE03AA51 /* Pods-GitClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClient.release.xcconfig"; path = "Target Support Files/Pods-GitClient/Pods-GitClient.release.xcconfig"; sourceTree = "<group>"; };
 		BFEC8D590128F651464E2BC9 /* Pods-GitClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClientUITests.debug.xcconfig"; path = "Target Support Files/Pods-GitClientUITests/Pods-GitClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D134C3BF8D4548787955E12A /* Pods-GitClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClientUITests.release.xcconfig"; path = "Target Support Files/Pods-GitClientUITests/Pods-GitClientUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,13 +178,15 @@
 		93FED5502273177C009DF9D9 /* GitClientTests */ = {
 			isa = PBXGroup;
 			children = (
-				93FED5D022763BDC009DF9D9 /* Json */,
+				93FED5D022763BDC009DF9D9 /* Fake */,
 				93FED5532273177C009DF9D9 /* Info.plist */,
 				93FED5D322763CDC009DF9D9 /* UserTests.swift */,
 				93FED5DF22765E99009DF9D9 /* IssueTests.swift */,
 				93FED5D522765738009DF9D9 /* RepositoryTests.swift */,
 				93FED5DD22765D95009DF9D9 /* BaseModelTests.swift */,
 				93FED5E42276A562009DF9D9 /* SearchRepositoryViewModelTests.swift */,
+				93FED5EE22773C6F009DF9D9 /* RepositoryInformationsInterfaceTests.swift */,
+				93FED5F022773E16009DF9D9 /* RepositoryListsViewModellInterfaceTests.swift */,
 			);
 			path = GitClientTests;
 			sourceTree = "<group>";
@@ -348,14 +354,22 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
-		93FED5D022763BDC009DF9D9 /* Json */ = {
+		93FED5D022763BDC009DF9D9 /* Fake */ = {
+			isa = PBXGroup;
+			children = (
+				93FED5F2227740E5009DF9D9 /* Json */,
+				93FED5E62276AD12009DF9D9 /* Fakes.swift */,
+			);
+			path = Fake;
+			sourceTree = "<group>";
+		};
+		93FED5F2227740E5009DF9D9 /* Json */ = {
 			isa = PBXGroup;
 			children = (
 				93FED5D122763C52009DF9D9 /* User.json */,
 				93FED5D72276574D009DF9D9 /* Repository.json */,
 				93FED5D9227657AA009DF9D9 /* BaseResponse.json */,
 				93FED5DB227657FC009DF9D9 /* Issue.json */,
-				93FED5E62276AD12009DF9D9 /* FakeApi.swift */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -553,7 +567,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$PROJECT_DIR/$TARGET_NAME/Common/Generated/R.generated.swift",
+				$PROJECT_DIR/$TARGET_NAME/Common/Generated/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -658,10 +672,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				93FED5D422763CDC009DF9D9 /* UserTests.swift in Sources */,
-				93FED5E72276AD12009DF9D9 /* FakeApi.swift in Sources */,
+				93FED5E72276AD12009DF9D9 /* Fakes.swift in Sources */,
 				93FED5D622765738009DF9D9 /* RepositoryTests.swift in Sources */,
+				93FED5F122773E16009DF9D9 /* RepositoryListsViewModellInterfaceTests.swift in Sources */,
 				93FED5DE22765D95009DF9D9 /* BaseModelTests.swift in Sources */,
 				93FED5E022765E99009DF9D9 /* IssueTests.swift in Sources */,
+				93FED5EF22773C6F009DF9D9 /* RepositoryInformationsInterfaceTests.swift in Sources */,
 				93FED5E52276A562009DF9D9 /* SearchRepositoryViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

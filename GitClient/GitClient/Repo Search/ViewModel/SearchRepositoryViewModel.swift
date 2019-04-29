@@ -33,9 +33,9 @@ class SearchRepositoryViewModel: SearchRepositoryViewModelInterface {
     let alertObservable: Observable<String>
 
     
-    private let coordinator:RepositorySearchCoordinatorInterface
+    private let coordinator:Coordinator
 
-    init(api: ApiInterface, coordinator:RepositorySearchCoordinatorInterface) {
+    init(api: ApiInterface, coordinator:Coordinator) {
         self.coordinator = coordinator
         
         let alertSubject = PublishSubject<String>()

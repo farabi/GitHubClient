@@ -6,7 +6,6 @@
 //  Copyright © 2019 Saad El Oulladi. All rights reserved.
 //
 
-import UIKit
 import RxCocoa
 import RxSwift
 

@@ -5,37 +5,34 @@
 //  Created by Saad El Oulladi on 29/04/2019.
 //  Copyright © 2019 Saad El Oulladi. All rights reserved.
 //
+
+import RxSwift
+import RxCocoa
+import RxNimble
 import Quick
 import Nimble
 
 @testable import GitClient
 
 class SearchRepositoryViewModelTests: QuickSpec {
-    
+
     override func spec() {
         
-        var testSubject: SearchRepositoryViewModelInterface!
+        let testSubject = SearchRepositoryViewModel(api: FakeData.api,
+                                                    coordinator: FakeData.coordinator)
         
-        describe("SearchRepositoryViewModel") {
+        describe("Given a SearchRepositoryViewModel") {
             
-            context("When parsed from json") {
+            context("When searching for an existing repository") {
                 
                 beforeEach {
-                    let bundle = Bundle(for: type(of: self))
-                    guard let url = bundle.url(forResource: "BaseResponse", withExtension: "json") else {
-                        fail("Json file doesn't exist")
-                        return
-                    }
-                    do {
-                        let json = try Data(contentsOf: url)
-                        let apiResponse = try JSONDecoder().decode(BaseResponse.self, from: json)
-                        //testSubject = SearchRepositoryViewModel(api: <#T##ApiInterface#>, coordinator: <#T##RepositorySearchCoordinatorInterface#>)
-                    } catch {
-                        fail("Wrong json format")
-                    }
+                    testSubject.searchObserver.onNext(FakeData.repository.name)
                 }
                 
-                it("Should have the expected values") {
+                it("Then it should return the expected repositories") {
+                        let result:[Repository] = try! testSubject.resultDriver.asObservable().toBlocking().first()!
+                        expect(result.count).to(equal([FakeData.repository].count))
+                        testSubject.searchObserver.onNext("Query")
                 }
             }
             

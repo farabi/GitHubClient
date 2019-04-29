@@ -22,7 +22,7 @@ class UserTests: QuickSpec {
     override func spec() {
         var testSubject: User!
         
-        describe("User Model") {
+        describe("Given a User Model") {
             
             context("When parsed from json") {
                 
@@ -40,7 +40,7 @@ class UserTests: QuickSpec {
                     }
                 }
                 
-                it("Should have the expected values") {
+                it("Then should have the expected values") {
                     expect(testSubject.login).to(equal(FakeData.login))
                     expect(testSubject.contributionsCount).to(equal(FakeData.contributions))
                     expect(testSubject.avatarUrlString).to(equal(FakeData.avatarUrl))

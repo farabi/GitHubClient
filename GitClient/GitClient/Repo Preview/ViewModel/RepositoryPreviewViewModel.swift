@@ -28,7 +28,7 @@ protocol RepositoryListsViewModellInterface: class {
 class RepositoryPreviewViewModel: RepositoryListsViewModellInterface, RepositoryInformationsInterface {
     
     private let api:ApiInterface
-    private let coordinator:RepositoryPreviewCoordinator
+    private let coordinator:Coordinator
     private let repository:Repository
     
     let informationsTitle: String
@@ -43,7 +43,7 @@ class RepositoryPreviewViewModel: RepositoryListsViewModellInterface, Repository
     let issuesViewModel: RepositoryPreviewListViewModel<Issue>
     let pullRequetsViewModel: RepositoryPreviewListViewModel<Issue>
 
-    init(repository: Repository, api: ApiInterface, coordinator:RepositoryPreviewCoordinator) {
+    init(repository: Repository, api: ApiInterface, coordinator:Coordinator) {
         
         self.api = api
         self.coordinator = coordinator

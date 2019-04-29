@@ -9,12 +9,7 @@
 import UIKit
 import RxSwift
 
-protocol RepositorySearchCoordinatorInterface: class {
-    
-    //func navigateToRepoPreview()
-}
-
-class RepositorySearchCoordinator: Coordinator, RepositorySearchCoordinatorInterface {
+class RepositorySearchCoordinator: Coordinator {
     
     let disposeBag = DisposeBag()
     
