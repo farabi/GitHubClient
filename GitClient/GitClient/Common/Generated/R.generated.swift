@@ -142,14 +142,20 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 7 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
     struct localizable {
+      /// Value: Alert
+      static let apiErrorTitle = Rswift.StringResource(key: "apiErrorTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Contributors
       static let repositoryPreviewContributors = Rswift.StringResource(key: "RepositoryPreviewContributors", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Informations
       static let repositoryPreviewInformations = Rswift.StringResource(key: "RepositoryPreviewInformations", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Issues
       static let repositoryPreviewIssues = Rswift.StringResource(key: "RepositoryPreviewIssues", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: No results.
+      static let apiErrorNoResults = Rswift.StringResource(key: "apiErrorNoResults", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Ok
+      static let apiErrorOk = Rswift.StringResource(key: "apiErrorOk", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Pull requests
       static let repositoryPreviewPullRequests = Rswift.StringResource(key: "RepositoryPreviewPullRequests", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Request Validation Failed.
@@ -158,6 +164,11 @@ struct R: Rswift.Validatable {
       static let apiErrorParsing = Rswift.StringResource(key: "apiErrorParsing", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Unknown Api Error.
       static let apiErrorUnknown = Rswift.StringResource(key: "apiErrorUnknown", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: Alert
+      static func apiErrorTitle(_: Void = ()) -> String {
+        return NSLocalizedString("apiErrorTitle", bundle: R.hostingBundle, comment: "")
+      }
       
       /// Value: Contributors
       static func repositoryPreviewContributors(_: Void = ()) -> String {
@@ -172,6 +183,16 @@ struct R: Rswift.Validatable {
       /// Value: Issues
       static func repositoryPreviewIssues(_: Void = ()) -> String {
         return NSLocalizedString("RepositoryPreviewIssues", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: No results.
+      static func apiErrorNoResults(_: Void = ()) -> String {
+        return NSLocalizedString("apiErrorNoResults", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: Ok
+      static func apiErrorOk(_: Void = ()) -> String {
+        return NSLocalizedString("apiErrorOk", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Pull requests

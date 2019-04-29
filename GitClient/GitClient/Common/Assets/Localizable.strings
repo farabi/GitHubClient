@@ -11,6 +11,9 @@
 "apiErrorWrongRequest" = "Request Validation Failed.";
 "apiErrorParsing" = "There was an error parsing this response.";
 "apiErrorUnknown" = "Unknown Api Error.";
+"apiErrorNoResults" = "No results.";
+"apiErrorTitle" = "Alert";
+"apiErrorOk" = "Ok";
 
 // GitHub Repository Preview
 

@@ -69,6 +69,9 @@ class GitHubApi: BaseApi, ApiInterface {
             guard let repositories = baseResponse.items else {
                 throw GitHubApiError.wrongRequest
             }
+            guard repositories.count > 0 else {
+                throw GitHubApiError.notResults
+            }
             return repositories
         }
     }

@@ -11,6 +11,7 @@ import Foundation
 public enum GitHubApiError: Error {
     case wrongRequest
     case parsingError
+    case notResults
     case unknown
 }
 
@@ -22,6 +23,8 @@ extension GitHubApiError: LocalizedError {
             return R.string.localizable.apiErrorWrongRequest()
         case .parsingError:
             return R.string.localizable.apiErrorParsing()
+        case .notResults:
+            return R.string.localizable.apiErrorNoResults()
         case .unknown:
             return R.string.localizable.apiErrorUnknown()
         }

@@ -12,7 +12,7 @@ import RxSwift
 
 class SearchRepositoryView: UIViewController {
     
-    public var viewModel:SearchRepositoryViewModelInterface?
+    var viewModel:SearchRepositoryViewModelInterface?
     
     @IBOutlet weak private var searchBar: UISearchBar!
     @IBOutlet weak private var resultTableView: UITableView!
@@ -27,7 +27,7 @@ class SearchRepositoryView: UIViewController {
         }
         
         searchBar.rx.text.orEmpty
-            .bind(to: viewModel.searchSubject)
+            .bind(to: viewModel.searchObserver)
             .disposed(by: disposeBag)
     
         resultTableView.registerCell(UITableViewCell.self)
@@ -40,6 +40,11 @@ class SearchRepositoryView: UIViewController {
         resultTableView.rx.modelSelected(Repository.self)
             .bind(to:viewModel.selectRepositoryObserver)
             .disposed(by: disposeBag)
+        
+        // FIXME
+        viewModel.alertObservable.subscribe { [weak self] in
+            self?.alert(withMessage: "test")
+        }.disposed(by: disposeBag)
     }
     
 }

@@ -12,44 +12,48 @@ import RxSwift
 protocol SearchRepositoryViewModelInterface: class {
     
     // MARK: - Inputs
-    var searchSubject:PublishSubject<String> {get}
-    var resultDriver:Driver<[Repository]> {get}
+    var searchObserver:AnyObserver<String> {get}
     var selectRepositoryObserver: AnyObserver<Repository> {get}
 
     // MARK: - Outputs
+    var resultDriver:Driver<[Repository]> {get}
     var selectRepositoryObservable: Observable<Repository> {get}
-
+    var alertObservable: Observable<String> {get}
 }
 
 class SearchRepositoryViewModel: SearchRepositoryViewModelInterface {
-    
-    private let api:ApiInterface
-    private let coordinator:RepositorySearchCoordinatorInterface
 
+    
     // MARK: - Inputs
-    
     let selectRepositoryObserver: AnyObserver<Repository>
-    // Fix me
-    let searchSubject = PublishSubject<String>()
-
-
+    let searchObserver: AnyObserver<String>
+    
     // MARK: - Outputs
     let selectRepositoryObservable: Observable<Repository>
+    let resultDriver:Driver<[Repository]>
+    let alertObservable: Observable<String>
+
     
-    lazy var resultDriver:Driver<[Repository]> = {
-        return searchSubject.asObservable()
-            .filter { !$0.isEmpty }
-            .distinctUntilChanged()
-            .debounce(0.3, scheduler: MainScheduler.instance)
-            .flatMapLatest { [unowned self] searchText -> Observable<[Repository]> in
-                return self.api.searchRepository(withQuery: searchText)
-        }.asDriver(onErrorJustReturn: [])
-    }()
+    private let coordinator:RepositorySearchCoordinatorInterface
 
     init(api: ApiInterface, coordinator:RepositorySearchCoordinatorInterface) {
-        
-        self.api = api
         self.coordinator = coordinator
+        
+        let alertSubject = PublishSubject<String>()
+        alertObservable = alertSubject.asObservable()
+        
+        let searchSubject = PublishSubject<String>()
+        searchObserver = searchSubject.asObserver()
+        resultDriver = searchSubject.asObservable()
+                                    .distinctUntilChanged()
+                                    .debounce(0.3, scheduler: MainScheduler.instance)
+                                    .flatMapLatest { searchText -> Observable<[Repository]> in
+                                        guard !searchText.isEmpty else { return Observable.just([]) }
+                                        return api.searchRepository(withQuery: searchText).catchError({ (error) in
+                                            alertSubject.onNext(error.localizedDescription)
+                                            return Observable.just([])
+                                        })
+                                    }.asDriver(onErrorJustReturn: [])
         
         let selectRepositorySubject = PublishSubject<Repository>()
         selectRepositoryObserver = selectRepositorySubject.asObserver()
