@@ -8,19 +8,20 @@
 
 import UIKit
 
-protocol Reusable {}
-
-extension UITableViewCell: Reusable {}
-
-extension Reusable {
+extension UITableViewCell {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
 extension UITableView {
-    func registerCell(_ Type: UITableViewCell.Type) {
+    func registerCell(Type: UITableViewCell.Type) {
         self.register(Type.self,
+                      forCellReuseIdentifier: Type.reuseIdentifier)
+    }
+    
+    func registerCellNib(withType Type: UITableViewCell.Type) {
+        self.register(UINib(nibName: String(describing: Type.self), bundle: nil),
                       forCellReuseIdentifier: Type.reuseIdentifier)
     }
 }

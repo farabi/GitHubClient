@@ -49,7 +49,48 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
+  /// This `R.image` struct is generated, and contains static references to 5 images.
+  struct image {
+    /// Image `alert-circle-outline`.
+    static let alertCircleOutline = Rswift.ImageResource(bundle: R.hostingBundle, name: "alert-circle-outline")
+    /// Image `book`.
+    static let book = Rswift.ImageResource(bundle: R.hostingBundle, name: "book")
+    /// Image `comment-outline`.
+    static let commentOutline = Rswift.ImageResource(bundle: R.hostingBundle, name: "comment-outline")
+    /// Image `directions-fork`.
+    static let directionsFork = Rswift.ImageResource(bundle: R.hostingBundle, name: "directions-fork")
+    /// Image `star`.
+    static let star = Rswift.ImageResource(bundle: R.hostingBundle, name: "star")
+    
+    /// `UIImage(named: "alert-circle-outline", bundle: ..., traitCollection: ...)`
+    static func alertCircleOutline(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.alertCircleOutline, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "book", bundle: ..., traitCollection: ...)`
+    static func book(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.book, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "comment-outline", bundle: ..., traitCollection: ...)`
+    static func commentOutline(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.commentOutline, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "directions-fork", bundle: ..., traitCollection: ...)`
+    static func directionsFork(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.directionsFork, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "star", bundle: ..., traitCollection: ...)`
+    static func star(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.star, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
   struct nib {
     /// Nib `CollaboratorTableViewCell`.
     static let collaboratorTableViewCell = _R.nib._CollaboratorTableViewCell()
@@ -61,6 +102,8 @@ struct R: Rswift.Validatable {
     static let repositoryPreviewTableView = _R.nib._RepositoryPreviewTableView()
     /// Nib `RepositoryPreviewView`.
     static let repositoryPreviewView = _R.nib._RepositoryPreviewView()
+    /// Nib `RepositoryTableViewCell`.
+    static let repositoryTableViewCell = _R.nib._RepositoryTableViewCell()
     /// Nib `SearchRepositoryView`.
     static let searchRepositoryView = _R.nib._SearchRepositoryView()
     
@@ -94,6 +137,12 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.repositoryPreviewView)
     }
     
+    /// `UINib(name: "RepositoryTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.repositoryTableViewCell) instead")
+    static func repositoryTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.repositoryTableViewCell)
+    }
+    
     /// `UINib(name: "SearchRepositoryView", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.searchRepositoryView) instead")
     static func searchRepositoryView(_: Void = ()) -> UIKit.UINib {
@@ -120,6 +169,10 @@ struct R: Rswift.Validatable {
       return R.nib.repositoryPreviewView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
     
+    static func repositoryTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RepositoryTableViewCell? {
+      return R.nib.repositoryTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RepositoryTableViewCell
+    }
+    
     static func searchRepositoryView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.searchRepositoryView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -142,8 +195,10 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 11 localization keys.
     struct localizable {
+      /// Value: @ Contributions
+      static let repositoryPreviewContributions = Rswift.StringResource(key: "RepositoryPreviewContributions", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Alert
       static let apiErrorTitle = Rswift.StringResource(key: "apiErrorTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Contributors
@@ -164,6 +219,11 @@ struct R: Rswift.Validatable {
       static let apiErrorParsing = Rswift.StringResource(key: "apiErrorParsing", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Unknown Api Error.
       static let apiErrorUnknown = Rswift.StringResource(key: "apiErrorUnknown", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: @ Contributions
+      static func repositoryPreviewContributions(_: Void = ()) -> String {
+        return NSLocalizedString("RepositoryPreviewContributions", bundle: R.hostingBundle, comment: "")
+      }
       
       /// Value: Alert
       static func apiErrorTitle(_: Void = ()) -> String {
@@ -237,9 +297,15 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+    try nib.validate()
   }
   
-  struct nib {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _IssueTableViewCell.validate()
+      try _RepositoryTableViewCell.validate()
+    }
+    
     struct _CollaboratorTableViewCell: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "CollaboratorTableViewCell"
@@ -251,12 +317,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct _IssueTableViewCell: Rswift.NibResourceType {
+    struct _IssueTableViewCell: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "IssueTableViewCell"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> IssueTableViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? IssueTableViewCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "alert-circle-outline", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'alert-circle-outline' is used in nib 'IssueTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "comment-outline", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'comment-outline' is used in nib 'IssueTableViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "GitHubTextGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GitHubTextGray' is used in storyboard 'IssueTableViewCell', but couldn't be loaded.") }
+        }
       }
       
       fileprivate init() {}
@@ -290,6 +364,27 @@ struct _R: Rswift.Validatable {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _RepositoryTableViewCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "RepositoryTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> RepositoryTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? RepositoryTableViewCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "book", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'book' is used in nib 'RepositoryTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "directions-fork", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'directions-fork' is used in nib 'RepositoryTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "star", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'star' is used in nib 'RepositoryTableViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "GitHubClientBlue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GitHubClientBlue' is used in storyboard 'RepositoryTableViewCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "GitHubTextGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GitHubTextGray' is used in storyboard 'RepositoryTableViewCell', but couldn't be loaded.") }
+        }
       }
       
       fileprivate init() {}

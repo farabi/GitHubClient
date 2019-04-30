@@ -30,9 +30,10 @@ class RepositoryPreviewTableView<Model, PreviewCell>: UITableViewController, Ind
         /// Empty existing delegates.
         tableView.delegate = nil
         tableView.dataSource = nil
-
+        tableView.separatorStyle = .none
+        
         /// Bind content tableView to listDataDriver.
-        tableView.registerCell(PreviewCell.self)
+        tableView.registerCellNib(withType: PreviewCell.self)
         viewModel.listDataDriver.drive(tableView.rx.items(cellIdentifier: PreviewCell.reuseIdentifier,
                                                           cellType: PreviewCell.self)){  _, model, cell in
                 cell.setViewModel(model: model)

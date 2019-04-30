@@ -29,7 +29,7 @@ class SearchRepositoryView: UIViewController {
             .bind(to: viewModel.searchObserver)
             .disposed(by: disposeBag)
     
-        resultTableView.registerCell(UITableViewCell.self)
+        resultTableView.registerCell(Type: UITableViewCell.self)
         viewModel.resultDriver.drive(resultTableView.rx.items(cellIdentifier: UITableViewCell.reuseIdentifier,
                                                               cellType: UITableViewCell.self)) {  _, repository, cell in
                 cell.textLabel?.text = repository.name
@@ -40,7 +40,7 @@ class SearchRepositoryView: UIViewController {
             .bind(to:viewModel.selectRepositoryObserver)
             .disposed(by: disposeBag)
         
-        // FIXME
+         #warning("Fix alert message")
         viewModel.alertObservable.subscribe { [weak self] in
             self?.alert(withMessage: "test")
         }.disposed(by: disposeBag)

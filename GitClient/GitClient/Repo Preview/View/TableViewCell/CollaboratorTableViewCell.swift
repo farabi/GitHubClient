@@ -7,17 +7,24 @@
 //
 
 import UIKit
+import RxSwift
 
 class CollaboratorTableViewCell: UITableViewCell, RepositoryPreviewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+    @IBOutlet private weak var commitsLabel: UILabel!
+    @IBOutlet private weak var loginLabel: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
+ 
+    let disposeBag = DisposeBag()
+    
     func setViewModel(model: Codable) {
         guard let collaborator = model as? User else { return}
         
-        textLabel?.text = collaborator.login
+        GitHubApi().fetchRemoteImage(withUrl: collaborator.avatarUrlString)
+            .bind(to: avatarImageView.rx.image).disposed(by: disposeBag)
+        loginLabel?.text = collaborator.login
+        if let contributionsCount = collaborator.contributionsCount {
+            commitsLabel?.text = "\(contributionsCount)" + R.string.localizable.repositoryPreviewContributions()
+        }
     }
 }
