@@ -10,10 +10,6 @@ import XLPagerTabStrip
 import RxCocoa
 import RxSwift
 
-protocol RepositoryPreviewCell where Self: UITableViewCell {
-    func setViewModel(model:Codable)
-}
-
 class RepositoryPreviewTableView<Model, PreviewCell>: UITableViewController, IndicatorInfoProvider  where Model: Codable, PreviewCell: RepositoryPreviewCell {
     
     private let disposeBag = DisposeBag()

@@ -19,6 +19,7 @@ protocol SearchRepositoryViewModelInterface: class {
     var resultDriver:Driver<[Repository]> {get}
     var selectRepositoryObservable: Observable<Repository> {get}
     var alertObservable: Observable<String> {get}
+    var resultHiddenObservable: Observable<Bool> {get}
 }
 
 class SearchRepositoryViewModel: SearchRepositoryViewModelInterface {
@@ -31,8 +32,8 @@ class SearchRepositoryViewModel: SearchRepositoryViewModelInterface {
     let selectRepositoryObservable: Observable<Repository>
     let resultDriver:Driver<[Repository]>
     let alertObservable: Observable<String>
+    let resultHiddenObservable: Observable<Bool>
 
-    
     private let coordinator:Coordinator
 
     init(api: ApiInterface, coordinator:Coordinator) {
@@ -40,7 +41,10 @@ class SearchRepositoryViewModel: SearchRepositoryViewModelInterface {
         
         let alertSubject = PublishSubject<String>()
         alertObservable = alertSubject.asObservable()
-        
+
+        let resultHiddenSubject = PublishSubject<Bool>()
+        resultHiddenObservable = resultHiddenSubject.asObservable()
+
         let searchSubject = PublishSubject<String>()
         searchObserver = searchSubject.asObserver()
         resultDriver = searchSubject.asObservable()
@@ -51,7 +55,9 @@ class SearchRepositoryViewModel: SearchRepositoryViewModelInterface {
                                             alertSubject.onNext(error.localizedDescription)
                                             return Observable.just([])
                                         })
-                                    }.asDriver(onErrorJustReturn: [])
+                                    }.do(onNext: { repositories in
+                                        resultHiddenSubject.onNext(repositories.count == 0)
+                                    }).asDriver(onErrorJustReturn: [])
         
         let selectRepositorySubject = PublishSubject<Repository>()
         selectRepositoryObserver = selectRepositorySubject.asObserver()

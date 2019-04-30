@@ -22,7 +22,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fR-oO-2Ae">
                         <rect key="frame" x="56" y="14.5" width="248" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" name="GitHubClientBlue"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -59,6 +59,13 @@
                         <color key="textColor" name="GitHubTextGray"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hx-qB-64f">
+                        <rect key="frame" x="0.0" y="75.5" width="320" height="1"/>
+                        <color key="backgroundColor" name="GitHubTextGray"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="G7W-VJ-noq"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="z3Z-bL-ve3" firstAttribute="leading" secondItem="K6R-Ph-g99" secondAttribute="trailing" constant="27" id="EfO-3E-lLy"/>
@@ -69,14 +76,22 @@
                     <constraint firstItem="f5a-XJ-J68" firstAttribute="leading" secondItem="z3Z-bL-ve3" secondAttribute="trailing" constant="2" id="Q7M-pf-0Pm"/>
                     <constraint firstItem="imh-Dn-xdf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="cMa-Bm-bA4"/>
                     <constraint firstAttribute="trailing" secondItem="0fR-oO-2Ae" secondAttribute="trailing" constant="16" id="erM-X8-KpD"/>
+                    <constraint firstItem="8hx-qB-64f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fxv-7o-IoH"/>
+                    <constraint firstAttribute="trailing" secondItem="8hx-qB-64f" secondAttribute="trailing" id="gmk-pU-pD2"/>
                     <constraint firstItem="Nym-WX-dRg" firstAttribute="top" secondItem="imh-Dn-xdf" secondAttribute="bottom" constant="6" id="h7D-p0-UA6"/>
                     <constraint firstItem="K6R-Ph-g99" firstAttribute="leading" secondItem="Nym-WX-dRg" secondAttribute="trailing" constant="2" id="lz6-1A-fwz"/>
                     <constraint firstItem="imh-Dn-xdf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="qJm-i5-P3N"/>
                     <constraint firstItem="Nym-WX-dRg" firstAttribute="centerX" secondItem="imh-Dn-xdf" secondAttribute="centerX" id="rMi-te-Ca1"/>
+                    <constraint firstAttribute="bottom" secondItem="8hx-qB-64f" secondAttribute="bottom" id="zDe-EG-WFi"/>
                     <constraint firstItem="z3Z-bL-ve3" firstAttribute="centerY" secondItem="Nym-WX-dRg" secondAttribute="centerY" id="zl4-6G-bet"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="forksLabel" destination="f5a-XJ-J68" id="uHJ-Z6-Him"/>
+                <outlet property="fullNameLabel" destination="0fR-oO-2Ae" id="F7I-SK-DwS"/>
+                <outlet property="starsLabel" destination="K6R-Ph-g99" id="Ycu-Z1-4om"/>
+            </connections>
             <point key="canvasLocation" x="47.826086956521742" y="45.870535714285715"/>
         </tableViewCell>
     </objects>

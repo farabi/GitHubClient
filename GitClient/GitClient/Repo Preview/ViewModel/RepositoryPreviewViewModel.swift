@@ -58,7 +58,7 @@ class RepositoryPreviewViewModel: RepositoryListsViewModellInterface, Repository
         
         let collaboratorsObseravle = api.fetchContributors(byRepositoryName: repository.fullName)
         collaboratorsViewModel = RepositoryPreviewListViewModel(apiCallObservable: collaboratorsObseravle,
-                                                                previewListTitle: R.string.localizable.repositoryPreviewContributors())
+                                                                previewListTitle: R.string.localizable.repositoryPreviewContributions())
         
         let issuesObseravle = api.fetchIssues(byRepositoryName: repository.fullName)
         issuesViewModel = RepositoryPreviewListViewModel(apiCallObservable: issuesObseravle,

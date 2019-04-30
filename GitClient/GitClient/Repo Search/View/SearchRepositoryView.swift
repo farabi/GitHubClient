@@ -29,11 +29,13 @@ class SearchRepositoryView: UIViewController {
             .bind(to: viewModel.searchObserver)
             .disposed(by: disposeBag)
     
-        resultTableView.registerCell(Type: UITableViewCell.self)
-        viewModel.resultDriver.drive(resultTableView.rx.items(cellIdentifier: UITableViewCell.reuseIdentifier,
-                                                              cellType: UITableViewCell.self)) {  _, repository, cell in
-                cell.textLabel?.text = repository.name
+        resultTableView.registerCellNib(withType: RepositoryTableViewCell.self)
+        viewModel.resultDriver.drive(resultTableView.rx.items(cellIdentifier: RepositoryTableViewCell.reuseIdentifier,
+                                                              cellType: RepositoryTableViewCell.self)) {  _, repository, cell in
+                cell.setViewModel(model: repository)
         }.disposed(by: disposeBag)
+        
+        //viewModel.resultHiddenObservable.bind(to: resultTableView.rx.isHidden).disposed(by: disposeBag)
         
         /// AKA didSelectRowAtIndexPath
         resultTableView.rx.modelSelected(Repository.self)

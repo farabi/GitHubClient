@@ -49,7 +49,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 5 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
     /// Image `alert-circle-outline`.
     static let alertCircleOutline = Rswift.ImageResource(bundle: R.hostingBundle, name: "alert-circle-outline")
@@ -59,6 +59,8 @@ struct R: Rswift.Validatable {
     static let commentOutline = Rswift.ImageResource(bundle: R.hostingBundle, name: "comment-outline")
     /// Image `directions-fork`.
     static let directionsFork = Rswift.ImageResource(bundle: R.hostingBundle, name: "directions-fork")
+    /// Image `search`.
+    static let search = Rswift.ImageResource(bundle: R.hostingBundle, name: "search")
     /// Image `star`.
     static let star = Rswift.ImageResource(bundle: R.hostingBundle, name: "star")
     
@@ -80,6 +82,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "directions-fork", bundle: ..., traitCollection: ...)`
     static func directionsFork(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.directionsFork, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "search", bundle: ..., traitCollection: ...)`
+    static func search(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.search, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "star", bundle: ..., traitCollection: ...)`
@@ -195,14 +202,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 11 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
     struct localizable {
-      /// Value: @ Contributions
-      static let repositoryPreviewContributions = Rswift.StringResource(key: "RepositoryPreviewContributions", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Alert
       static let apiErrorTitle = Rswift.StringResource(key: "apiErrorTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Contributors
-      static let repositoryPreviewContributors = Rswift.StringResource(key: "RepositoryPreviewContributors", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Contributions
+      static let repositoryPreviewContributions = Rswift.StringResource(key: "RepositoryPreviewContributions", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Informations
       static let repositoryPreviewInformations = Rswift.StringResource(key: "RepositoryPreviewInformations", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Issues
@@ -220,19 +225,14 @@ struct R: Rswift.Validatable {
       /// Value: Unknown Api Error.
       static let apiErrorUnknown = Rswift.StringResource(key: "apiErrorUnknown", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
-      /// Value: @ Contributions
-      static func repositoryPreviewContributions(_: Void = ()) -> String {
-        return NSLocalizedString("RepositoryPreviewContributions", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// Value: Alert
       static func apiErrorTitle(_: Void = ()) -> String {
         return NSLocalizedString("apiErrorTitle", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: Contributors
-      static func repositoryPreviewContributors(_: Void = ()) -> String {
-        return NSLocalizedString("RepositoryPreviewContributors", bundle: R.hostingBundle, comment: "")
+      /// Value: Contributions
+      static func repositoryPreviewContributions(_: Void = ()) -> String {
+        return NSLocalizedString("RepositoryPreviewContributions", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Informations
@@ -304,6 +304,7 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try _IssueTableViewCell.validate()
       try _RepositoryTableViewCell.validate()
+      try _SearchRepositoryView.validate()
     }
     
     struct _CollaboratorTableViewCell: Rswift.NibResourceType {
@@ -390,12 +391,19 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct _SearchRepositoryView: Rswift.NibResourceType {
+    struct _SearchRepositoryView: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "SearchRepositoryView"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'search' is used in nib 'SearchRepositoryView', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "GithubLightGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GithubLightGray' is used in storyboard 'SearchRepositoryView', but couldn't be loaded.") }
+        }
       }
       
       fileprivate init() {}

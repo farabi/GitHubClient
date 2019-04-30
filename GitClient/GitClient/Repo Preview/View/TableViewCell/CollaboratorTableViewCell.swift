@@ -13,7 +13,7 @@ class CollaboratorTableViewCell: UITableViewCell, RepositoryPreviewCell {
 
     @IBOutlet private weak var commitsLabel: UILabel!
     @IBOutlet private weak var loginLabel: UILabel!
-    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet private weak var avatarImageView: UIImageView!
  
     let disposeBag = DisposeBag()
     

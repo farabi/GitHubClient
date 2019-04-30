@@ -8,17 +8,21 @@
 
 import UIKit
 
-class RepositoryTableViewCell: UITableViewCell {
+protocol RepositoryPreviewCell where Self: UITableViewCell {
+    func setViewModel(model:Codable)
+}
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+class RepositoryTableViewCell: UITableViewCell, RepositoryPreviewCell {
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    @IBOutlet private weak var fullNameLabel: UILabel!
+    @IBOutlet private weak var starsLabel: UILabel!
+    @IBOutlet private weak var forksLabel: UILabel!
     
+    func setViewModel(model: Codable) {
+        guard let repository = model as? Repository else { return}
+
+        fullNameLabel.text = repository.fullName
+        starsLabel.text = "\(repository.starsCount)"
+        forksLabel.text = "\(repository.forksCount)"
+    }
 }

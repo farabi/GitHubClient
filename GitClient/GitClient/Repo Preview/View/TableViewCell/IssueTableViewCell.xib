@@ -52,6 +52,13 @@
                         <color key="textColor" name="GitHubTextGray"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPV-3z-ez8">
+                        <rect key="frame" x="0.0" y="63.5" width="320" height="1"/>
+                        <color key="backgroundColor" name="GitHubTextGray"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="fWv-7J-gQ8"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="3f1-zn-zmq" secondAttribute="trailing" constant="25" id="3O3-9u-ecD"/>
@@ -59,9 +66,12 @@
                     <constraint firstItem="BES-VF-psj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="5jE-51-sA4"/>
                     <constraint firstAttribute="bottom" secondItem="7us-Lv-C5f" secondAttribute="bottom" constant="10" id="9QG-xf-bnU"/>
                     <constraint firstItem="BES-VF-psj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CQd-qD-96k"/>
+                    <constraint firstItem="TPV-3z-ez8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="D88-Qk-UIb"/>
                     <constraint firstItem="UhH-Gv-075" firstAttribute="leading" secondItem="3f1-zn-zmq" secondAttribute="trailing" constant="5" id="F5c-2L-b8t"/>
+                    <constraint firstAttribute="bottom" secondItem="TPV-3z-ez8" secondAttribute="bottom" id="Gbt-8a-dKY"/>
                     <constraint firstItem="UhH-Gv-075" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IG3-7a-kBD"/>
                     <constraint firstItem="3f1-zn-zmq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ll1-f1-TcJ"/>
+                    <constraint firstAttribute="trailing" secondItem="TPV-3z-ez8" secondAttribute="trailing" id="Zw5-bU-oAx"/>
                     <constraint firstItem="eNO-dY-dXj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="bxm-8k-tov"/>
                     <constraint firstItem="eNO-dY-dXj" firstAttribute="leading" secondItem="BES-VF-psj" secondAttribute="trailing" constant="10" id="gg7-TW-afR"/>
                     <constraint firstItem="3f1-zn-zmq" firstAttribute="leading" secondItem="eNO-dY-dXj" secondAttribute="trailing" constant="10" id="msx-ur-edG"/>
