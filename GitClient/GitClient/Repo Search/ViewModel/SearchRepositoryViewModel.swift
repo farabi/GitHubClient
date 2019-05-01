@@ -20,6 +20,7 @@ protocol SearchRepositoryViewModelInterface: class {
     var selectRepositoryObservable: Observable<Repository> {get}
     var alertObservable: Observable<String> {get}
     var resultHiddenObservable: Observable<Bool> {get}
+    var loadingObservable: Observable<Bool> {get}
 }
 
 class SearchRepositoryViewModel: SearchRepositoryViewModelInterface {
@@ -33,6 +34,7 @@ class SearchRepositoryViewModel: SearchRepositoryViewModelInterface {
     let resultDriver:Driver<[Repository]>
     let alertObservable: Observable<String>
     let resultHiddenObservable: Observable<Bool>
+    let loadingObservable: Observable<Bool>
 
     private let coordinator:Coordinator
 
@@ -44,12 +46,19 @@ class SearchRepositoryViewModel: SearchRepositoryViewModelInterface {
 
         let resultHiddenSubject = PublishSubject<Bool>()
         resultHiddenObservable = resultHiddenSubject.asObservable()
+        
+        let loadingReplay = BehaviorRelay<Bool>(value: false)
+        loadingObservable = loadingReplay.asObservable()
 
         let searchSubject = PublishSubject<String>()
         searchObserver = searchSubject.asObserver()
         resultDriver = searchSubject.asObservable()
+                                    .startWith("")
                                     .distinctUntilChanged()
                                     .debounce(0.3, scheduler: MainScheduler.instance)
+                                    .do(onNext: { _ in
+                                        loadingReplay.accept(true)
+                                    })
                                     .flatMapLatest { searchText -> Observable<[Repository]> in
                                         return api.searchRepository(withQuery: searchText).catchError({ (error) in
                                             alertSubject.onNext(error.localizedDescription)
@@ -57,6 +66,7 @@ class SearchRepositoryViewModel: SearchRepositoryViewModelInterface {
                                         })
                                     }.do(onNext: { repositories in
                                         resultHiddenSubject.onNext(repositories.count == 0)
+                                        loadingReplay.accept(false)
                                     }).asDriver(onErrorJustReturn: [])
         
         let selectRepositorySubject = PublishSubject<Repository>()

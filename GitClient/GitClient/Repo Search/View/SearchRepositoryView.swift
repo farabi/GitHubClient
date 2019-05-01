@@ -15,6 +15,7 @@ class SearchRepositoryView: UIViewController {
     
     @IBOutlet weak private var searchBar: UISearchBar!
     @IBOutlet weak private var resultTableView: UITableView!
+    @IBOutlet weak private var activiryIndicator: UIActivityIndicatorView!
     
     let disposeBag = DisposeBag()
 
@@ -36,6 +37,11 @@ class SearchRepositoryView: UIViewController {
             .bind(to: viewModel.searchObserver)
             .disposed(by: disposeBag)
         
+        /// AKA didSelectRowAtIndexPath
+        resultTableView.rx.modelSelected(Repository.self)
+            .bind(to:viewModel.selectRepositoryObserver)
+            .disposed(by: disposeBag)
+        
         /// Bind tableview to results
         resultTableView.registerCellNib(withType: RepositoryTableViewCell.self)
         viewModel.resultDriver.drive(resultTableView.rx.items(cellIdentifier: RepositoryTableViewCell.reuseIdentifier,
@@ -44,13 +50,15 @@ class SearchRepositoryView: UIViewController {
         }.disposed(by: disposeBag)
         
         /// Hide/Unhide results
-        viewModel.resultHiddenObservable.bind(to: resultTableView.rx.isHidden).disposed(by: disposeBag)
-        
-        /// AKA didSelectRowAtIndexPath
-        resultTableView.rx.modelSelected(Repository.self)
-            .bind(to:viewModel.selectRepositoryObserver)
+        viewModel.resultHiddenObservable
+            .bind(to: resultTableView.rx.isHidden)
             .disposed(by: disposeBag)
         
+        /// Hide/Unhide results
+        viewModel.loadingObservable
+            .bind(to: activiryIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+
         #warning("Fix alert message")
         viewModel.alertObservable.subscribe { [weak self] in
             self?.alert(withMessage: "test")
