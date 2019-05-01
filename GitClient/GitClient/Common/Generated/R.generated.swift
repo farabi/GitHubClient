@@ -16,7 +16,7 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 3 colors.
+  /// This `R.color` struct is generated, and contains static references to 4 colors.
   struct color {
     /// Color `GitHubClientBlue`.
     static let gitHubClientBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "GitHubClientBlue")
@@ -24,6 +24,8 @@ struct R: Rswift.Validatable {
     static let gitHubTextGray = Rswift.ColorResource(bundle: R.hostingBundle, name: "GitHubTextGray")
     /// Color `GithubLightGray`.
     static let githubLightGray = Rswift.ColorResource(bundle: R.hostingBundle, name: "GithubLightGray")
+    /// Color `gitHubDarkGray`.
+    static let gitHubDarkGray = Rswift.ColorResource(bundle: R.hostingBundle, name: "gitHubDarkGray")
     
     /// `UIColor(named: "GitHubClientBlue", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
@@ -44,6 +46,13 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func githubLightGray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.githubLightGray, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "gitHubDarkGray", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func gitHubDarkGray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.gitHubDarkGray, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -202,10 +211,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 11 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 12 localization keys.
     struct localizable {
       /// Value: Alert
       static let apiErrorTitle = Rswift.StringResource(key: "apiErrorTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: By : 
+      static let repositoryPreviewOwner = Rswift.StringResource(key: "RepositoryPreviewOwner", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Contributions
       static let repositoryPreviewContributions = Rswift.StringResource(key: "RepositoryPreviewContributions", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: GitHub Client
@@ -230,6 +241,11 @@ struct R: Rswift.Validatable {
       /// Value: Alert
       static func apiErrorTitle(_: Void = ()) -> String {
         return NSLocalizedString("apiErrorTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: By : 
+      static func repositoryPreviewOwner(_: Void = ()) -> String {
+        return NSLocalizedString("RepositoryPreviewOwner", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Contributions
@@ -310,6 +326,7 @@ struct _R: Rswift.Validatable {
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _IssueTableViewCell.validate()
+      try _RepositoryInformationsView.validate()
       try _RepositoryTableViewCell.validate()
       try _SearchRepositoryView.validate()
     }
@@ -345,12 +362,22 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct _RepositoryInformationsView: Rswift.NibResourceType {
+    struct _RepositoryInformationsView: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "RepositoryInformationsView"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "directions-fork", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'directions-fork' is used in nib 'RepositoryInformationsView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "star", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'star' is used in nib 'RepositoryInformationsView', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "GitHubClientBlue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GitHubClientBlue' is used in storyboard 'RepositoryInformationsView', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "GitHubTextGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GitHubTextGray' is used in storyboard 'RepositoryInformationsView', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "GithubLightGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GithubLightGray' is used in storyboard 'RepositoryInformationsView', but couldn't be loaded.") }
+        }
       }
       
       fileprivate init() {}

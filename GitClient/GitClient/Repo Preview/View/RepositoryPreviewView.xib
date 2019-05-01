@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,11 +24,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jpL-Jq-1Cn">
-                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                    <rect key="frame" x="0.0" y="94" width="414" height="802"/>
                 </scrollView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Idk-eA-Tfu" customClass="ButtonBarView" customModule="XLPagerTabStrip">
                     <rect key="frame" x="0.0" y="44" width="414" height="50"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="gitHubDarkGray"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Xvc-Ne-OCX"/>
                     </constraints>
@@ -46,11 +47,16 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jpL-Jq-1Cn" secondAttribute="trailing" id="GXM-Zb-WR1"/>
                 <constraint firstItem="Idk-eA-Tfu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="OSj-Tv-ZxR"/>
                 <constraint firstItem="jpL-Jq-1Cn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Oon-IB-szH"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jpL-Jq-1Cn" secondAttribute="bottom" id="Xwy-SX-ihV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jpL-Jq-1Cn" secondAttribute="bottom" constant="-34" id="Xwy-SX-ihV"/>
                 <constraint firstItem="jpL-Jq-1Cn" firstAttribute="top" secondItem="Idk-eA-Tfu" secondAttribute="bottom" id="kD9-8j-Clg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="gitHubDarkGray">
+            <color red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -17,7 +17,6 @@
                 <outlet property="forksLabel" destination="lWC-t5-fj3" id="qCl-NM-pqW"/>
                 <outlet property="ownerImageView" destination="ecm-jV-Qjg" id="Wax-LQ-0Av"/>
                 <outlet property="ownerLabel" destination="dS5-47-Ma2" id="Cpc-lJ-JZw"/>
-                <outlet property="pushesLabel" destination="jDB-dd-o2b" id="R8c-2A-ReE"/>
                 <outlet property="starsLabel" destination="fu7-EA-dcD" id="76j-bx-UjK"/>
                 <outlet property="titleLabel" destination="QuO-JI-2Pa" id="9KF-qd-HTp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,75 +28,85 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuO-JI-2Pa">
-                    <rect key="frame" x="30" y="94" width="34" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="30" y="74" width="38.5" height="21.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="textColor" name="GitHubClientBlue"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pk-5F-ulC">
-                    <rect key="frame" x="30" y="135" width="364" height="0.0"/>
+                    <rect key="frame" x="30" y="115.5" width="364" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" name="GitHubTextGray"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ecm-jV-Qjg">
-                    <rect key="frame" x="30" y="256" width="150" height="150"/>
+                    <rect key="frame" x="30" y="207.5" width="150" height="150"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="aLX-Wv-PMQ"/>
                         <constraint firstAttribute="height" constant="150" id="qhU-oS-96L"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dS5-47-Ma2">
-                    <rect key="frame" x="30" y="199" width="51" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="30" y="166.5" width="57.5" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="textColor" name="GitHubTextGray"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu7-EA-dcD">
-                    <rect key="frame" x="354" y="216" width="40" height="21"/>
+                    <rect key="frame" x="354" y="207.5" width="40" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWC-t5-fj3">
-                    <rect key="frame" x="351" y="255" width="43" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pushes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDB-dd-o2b">
-                    <rect key="frame" x="338" y="294" width="56" height="21"/>
+                    <rect key="frame" x="351" y="246.5" width="43" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-HH-1Ar">
-                    <rect key="frame" x="30" y="165" width="364" height="1"/>
+                    <rect key="frame" x="30" y="145.5" width="364" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="m0h-YY-i5r"/>
                     </constraints>
                 </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="directions-fork" translatesAutoresizingMaskIntoConstraints="NO" id="vGa-Od-4Ni">
+                    <rect key="frame" x="311" y="242" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="9CS-7f-PH5"/>
+                        <constraint firstAttribute="width" constant="30" id="gzu-np-k1L"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="UuO-ya-d9y">
+                    <rect key="frame" x="314" y="203" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="Ei2-29-SkW"/>
+                        <constraint firstAttribute="height" constant="30" id="c5f-Qh-3XR"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" name="GithubLightGray"/>
             <constraints>
                 <constraint firstItem="3d9-HH-1Ar" firstAttribute="top" secondItem="7Pk-5F-ulC" secondAttribute="bottom" constant="30" id="0TE-Ig-AUh"/>
-                <constraint firstItem="dS5-47-Ma2" firstAttribute="top" secondItem="3d9-HH-1Ar" secondAttribute="bottom" constant="33" id="C8f-gn-ZR6"/>
+                <constraint firstItem="dS5-47-Ma2" firstAttribute="top" secondItem="3d9-HH-1Ar" secondAttribute="bottom" constant="20" id="C8f-gn-ZR6"/>
                 <constraint firstItem="ecm-jV-Qjg" firstAttribute="leading" secondItem="3d9-HH-1Ar" secondAttribute="leading" id="G4P-ta-AfP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ecm-jV-Qjg" secondAttribute="bottom" constant="30" id="LN7-ME-nj2"/>
                 <constraint firstItem="7Pk-5F-ulC" firstAttribute="leading" secondItem="QuO-JI-2Pa" secondAttribute="leading" id="SoQ-QC-Abd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7Pk-5F-ulC" secondAttribute="trailing" constant="20" id="TiK-dC-lxw"/>
                 <constraint firstItem="3d9-HH-1Ar" firstAttribute="trailing" secondItem="7Pk-5F-ulC" secondAttribute="trailing" id="V4d-gn-TFG"/>
+                <constraint firstItem="lWC-t5-fj3" firstAttribute="centerY" secondItem="vGa-Od-4Ni" secondAttribute="centerY" id="aGr-3b-z8F"/>
                 <constraint firstItem="lWC-t5-fj3" firstAttribute="top" secondItem="fu7-EA-dcD" secondAttribute="bottom" constant="18" id="bxO-nT-Eha"/>
-                <constraint firstItem="jDB-dd-o2b" firstAttribute="trailing" secondItem="3d9-HH-1Ar" secondAttribute="trailing" id="efA-dl-YOi"/>
-                <constraint firstItem="jDB-dd-o2b" firstAttribute="top" secondItem="lWC-t5-fj3" secondAttribute="bottom" constant="18" id="htw-m2-z11"/>
                 <constraint firstItem="3d9-HH-1Ar" firstAttribute="leading" secondItem="7Pk-5F-ulC" secondAttribute="leading" id="ijI-Af-ymz"/>
-                <constraint firstItem="QuO-JI-2Pa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="kLn-GB-fdA"/>
-                <constraint firstItem="ecm-jV-Qjg" firstAttribute="top" secondItem="dS5-47-Ma2" secondAttribute="bottom" constant="36" id="mEv-2D-zpA"/>
-                <constraint firstItem="fu7-EA-dcD" firstAttribute="top" secondItem="3d9-HH-1Ar" secondAttribute="bottom" constant="50" id="nvx-9Y-xM1"/>
+                <constraint firstItem="fu7-EA-dcD" firstAttribute="top" secondItem="ecm-jV-Qjg" secondAttribute="top" id="jTt-Vq-XuA"/>
+                <constraint firstItem="QuO-JI-2Pa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="kLn-GB-fdA"/>
+                <constraint firstItem="ecm-jV-Qjg" firstAttribute="top" secondItem="dS5-47-Ma2" secondAttribute="bottom" constant="20" id="mEv-2D-zpA"/>
+                <constraint firstItem="fu7-EA-dcD" firstAttribute="centerY" secondItem="UuO-ya-d9y" secondAttribute="centerY" id="qM6-z0-6yd"/>
                 <constraint firstItem="fu7-EA-dcD" firstAttribute="trailing" secondItem="3d9-HH-1Ar" secondAttribute="trailing" id="qUt-yS-oEM"/>
+                <constraint firstItem="fu7-EA-dcD" firstAttribute="leading" secondItem="UuO-ya-d9y" secondAttribute="trailing" constant="10" id="sko-fh-nJl"/>
                 <constraint firstItem="7Pk-5F-ulC" firstAttribute="top" secondItem="QuO-JI-2Pa" secondAttribute="bottom" constant="20" id="tN4-Zx-AQa"/>
                 <constraint firstItem="lWC-t5-fj3" firstAttribute="trailing" secondItem="3d9-HH-1Ar" secondAttribute="trailing" id="uOS-1Q-AMm"/>
+                <constraint firstItem="lWC-t5-fj3" firstAttribute="leading" secondItem="vGa-Od-4Ni" secondAttribute="trailing" constant="10" id="xJX-kx-JX8"/>
                 <constraint firstItem="dS5-47-Ma2" firstAttribute="leading" secondItem="3d9-HH-1Ar" secondAttribute="leading" id="yem-Ue-8O7"/>
                 <constraint firstItem="QuO-JI-2Pa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="zT3-7p-kgb"/>
             </constraints>
@@ -106,6 +115,14 @@
         </view>
     </objects>
     <resources>
+        <image name="directions-fork" width="30" height="30"/>
+        <image name="star" width="30" height="30"/>
+        <namedColor name="GitHubClientBlue">
+            <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GitHubTextGray">
+            <color red="0.36500000953674316" green="0.3919999897480011" blue="0.42399999499320984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="GithubLightGray">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

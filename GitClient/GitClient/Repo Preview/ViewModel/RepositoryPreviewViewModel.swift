@@ -54,7 +54,7 @@ class RepositoryPreviewViewModel: RepositoryListsViewModellInterface, Repository
         repositoryNameObservable = Observable.just(repository.name)
         repositoryFullNameObservable = Observable.just(repository.fullName)
         repositoryDescriptionObservable = Observable.just(repository.description)
-        repositoryOwnerObservable = Observable.just(repository.owner.login)
+        repositoryOwnerObservable = Observable.just(R.string.localizable.repositoryPreviewOwner()+repository.owner.login)
         repositoryStarsObservable = Observable.just("\(repository.starsCount)")
         repositoryForksObservable = Observable.just("\(repository.forksCount)")
         repositoryOwnerAvatar = api.fetchRemoteImage(withUrl: repository.owner.avatarUrlString)

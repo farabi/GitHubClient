@@ -20,8 +20,8 @@ class RepositoryPreviewView: ButtonBarPagerTabStripViewController {
         buttonBarPagerCustomAppearance()
     }
     
-    func buttonBarPagerCustomAppearance() {
-        settings.style.buttonBarItemBackgroundColor = .white
+    private func buttonBarPagerCustomAppearance() {
+        settings.style.buttonBarItemBackgroundColor = R.color.gitHubDarkGray()
         settings.style.buttonBarItemTitleColor = R.color.gitHubTextGray()
         buttonBarView.selectedBar.backgroundColor = R.color.gitHubClientBlue()
     }

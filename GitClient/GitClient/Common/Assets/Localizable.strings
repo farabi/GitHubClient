@@ -19,6 +19,7 @@
 
 "HomeTitle" = "GitHub Client";
 "RepositoryPreviewIssues" = "Issues";
+"RepositoryPreviewOwner" = "By : ";
 "RepositoryPreviewPullRequests" = "Pull requests";
 "RepositoryPreviewInformations" = "Informations";
 "RepositoryPreviewContributions" = "Contributions";
