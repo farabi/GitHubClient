@@ -45,6 +45,7 @@ No need to run pod install, libraries are already included. [Here is why](https:
 
 <aside class="warning">
 ⚠️  Generated classes and views are not included in the test coverage report.
+  Generated code with R.swift is not testable. it's not common to test UI since its related to the application lifecycle.
 </aside>
 
 
