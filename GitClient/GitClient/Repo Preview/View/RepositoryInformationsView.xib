@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,7 +79,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="GithubLightGray"/>
             <constraints>
                 <constraint firstItem="3d9-HH-1Ar" firstAttribute="top" secondItem="7Pk-5F-ulC" secondAttribute="bottom" constant="30" id="0TE-Ig-AUh"/>
                 <constraint firstItem="dS5-47-Ma2" firstAttribute="top" secondItem="3d9-HH-1Ar" secondAttribute="bottom" constant="33" id="C8f-gn-ZR6"/>
@@ -104,4 +105,9 @@
             <point key="canvasLocation" x="79.710144927536234" y="35.491071428571423"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="GithubLightGray">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

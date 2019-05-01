@@ -35,7 +35,6 @@ class RepositoryInformationsView: UIViewController, IndicatorInfoProvider {
             return
         }
         
-        title = viewModel.informationsTitle
         viewModel.repositoryFullNameObservable
             .bind(to: titleLabel.rx.text).disposed(by:disposeBag)
         viewModel.repositoryOwnerObservable

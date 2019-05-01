@@ -202,12 +202,14 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 11 localization keys.
     struct localizable {
       /// Value: Alert
       static let apiErrorTitle = Rswift.StringResource(key: "apiErrorTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Contributions
       static let repositoryPreviewContributions = Rswift.StringResource(key: "RepositoryPreviewContributions", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: GitHub Client
+      static let homeTitle = Rswift.StringResource(key: "HomeTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Informations
       static let repositoryPreviewInformations = Rswift.StringResource(key: "RepositoryPreviewInformations", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Issues
@@ -233,6 +235,11 @@ struct R: Rswift.Validatable {
       /// Value: Contributions
       static func repositoryPreviewContributions(_: Void = ()) -> String {
         return NSLocalizedString("RepositoryPreviewContributions", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: GitHub Client
+      static func homeTitle(_: Void = ()) -> String {
+        return NSLocalizedString("HomeTitle", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: Informations
@@ -331,6 +338,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "comment-outline", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'comment-outline' is used in nib 'IssueTableViewCell', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
           if UIKit.UIColor(named: "GitHubTextGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GitHubTextGray' is used in storyboard 'IssueTableViewCell', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "GithubLightGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GithubLightGray' is used in storyboard 'IssueTableViewCell', but couldn't be loaded.") }
         }
       }
       
@@ -402,6 +410,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "search", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'search' is used in nib 'SearchRepositoryView', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "GitHubTextGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GitHubTextGray' is used in storyboard 'SearchRepositoryView', but couldn't be loaded.") }
           if UIKit.UIColor(named: "GithubLightGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'GithubLightGray' is used in storyboard 'SearchRepositoryView', but couldn't be loaded.") }
         }
       }

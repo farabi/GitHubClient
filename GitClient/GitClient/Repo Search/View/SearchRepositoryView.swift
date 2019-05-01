@@ -20,32 +20,41 @@ class SearchRepositoryView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = R.string.localizable.homeTitle()
+        
+        bindUIToViewModel()
+     }
+    
+    func bindUIToViewModel()  {
         
         guard let viewModel = viewModel else {
             return
         }
-        
+
+        /// Observe searchBar input text
         searchBar.rx.text.orEmpty
             .bind(to: viewModel.searchObserver)
             .disposed(by: disposeBag)
-    
+        
+        /// Bind tableview to results
         resultTableView.registerCellNib(withType: RepositoryTableViewCell.self)
         viewModel.resultDriver.drive(resultTableView.rx.items(cellIdentifier: RepositoryTableViewCell.reuseIdentifier,
                                                               cellType: RepositoryTableViewCell.self)) {  _, repository, cell in
-                cell.setViewModel(model: repository)
+                    cell.setViewModel(model: repository)
         }.disposed(by: disposeBag)
         
-        //viewModel.resultHiddenObservable.bind(to: resultTableView.rx.isHidden).disposed(by: disposeBag)
+        /// Hide/Unhide results
+        viewModel.resultHiddenObservable.bind(to: resultTableView.rx.isHidden).disposed(by: disposeBag)
         
         /// AKA didSelectRowAtIndexPath
         resultTableView.rx.modelSelected(Repository.self)
             .bind(to:viewModel.selectRepositoryObserver)
             .disposed(by: disposeBag)
         
-         #warning("Fix alert message")
+        #warning("Fix alert message")
         viewModel.alertObservable.subscribe { [weak self] in
             self?.alert(withMessage: "test")
-        }.disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
     }
     
 }

@@ -6,13 +6,15 @@
 //  Copyright © 2019 Saad El Oulladi. All rights reserved.
 //
 
-import UIKit
+import RxCocoa
+import RxSwift
 import XLPagerTabStrip
 
 class RepositoryPreviewView: ButtonBarPagerTabStripViewController {
 
-    public var viewModel:RepositoryListsViewModellInterface?
-    
+    var viewModel:RepositoryListsViewModellInterface?
+    private let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonBarPagerCustomAppearance()
@@ -26,17 +28,25 @@ class RepositoryPreviewView: ButtonBarPagerTabStripViewController {
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
 
+        guard let viewModel = viewModel else {
+            fatalError("ViewModel should be implemented for RepositoryPreviewView")
+        }
+        
+        if let navigationController = navigationController {
+            viewModel.repositoryNameObservable.bind(to: navigationController.rx.title).disposed(by: disposeBag)
+        }
+        
         let informationsView = RepositoryInformationsView()
         informationsView.viewModel = viewModel as? RepositoryInformationsInterface
         
         let collaboratorsView = RepositoryPreviewTableView<User, CollaboratorTableViewCell>()
-        collaboratorsView.viewModel = viewModel?.collaboratorsViewModel
+        collaboratorsView.viewModel = viewModel.collaboratorsViewModel
         
         let issuesView = RepositoryPreviewTableView<Issue, IssueTableViewCell>()
-        issuesView.viewModel = viewModel?.issuesViewModel
+        issuesView.viewModel = viewModel.issuesViewModel
 
         let pullRequetsView = RepositoryPreviewTableView<Issue, IssueTableViewCell>()
-        pullRequetsView.viewModel = viewModel?.pullRequetsViewModel
+        pullRequetsView.viewModel = viewModel.pullRequetsViewModel
 
         
         return [informationsView, collaboratorsView, issuesView, pullRequetsView]

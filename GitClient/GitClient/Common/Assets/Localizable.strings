@@ -15,8 +15,9 @@
 "apiErrorTitle" = "Alert";
 "apiErrorOk" = "Ok";
 
-// GitHub Repository Preview
+// GitHub Repository
 
+"HomeTitle" = "GitHub Client";
 "RepositoryPreviewIssues" = "Issues";
 "RepositoryPreviewPullRequests" = "Pull requests";
 "RepositoryPreviewInformations" = "Informations";

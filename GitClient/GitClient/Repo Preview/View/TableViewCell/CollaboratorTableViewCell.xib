@@ -39,16 +39,27 @@
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evJ-WP-bJ4">
+                        <rect key="frame" x="0.0" y="42" width="320" height="1"/>
+                        <color key="backgroundColor" name="GitHubTextGray"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="dQ8-TE-Yer"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="rve-TR-Ez2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6Wo-hg-9iz"/>
                     <constraint firstItem="C8Y-D4-kVn" firstAttribute="centerY" secondItem="rve-TR-Ez2" secondAttribute="centerY" id="Ffz-q3-xut"/>
+                    <constraint firstItem="evJ-WP-bJ4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="J2C-JN-qzc"/>
                     <constraint firstItem="Vf3-qn-tTM" firstAttribute="leading" secondItem="C8Y-D4-kVn" secondAttribute="trailing" constant="10" id="MJi-wc-8fW"/>
                     <constraint firstItem="C8Y-D4-kVn" firstAttribute="leading" secondItem="rve-TR-Ez2" secondAttribute="trailing" constant="15" id="bIL-Rp-JsE"/>
                     <constraint firstItem="rve-TR-Ez2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="d0m-LC-FNr"/>
                     <constraint firstItem="Vf3-qn-tTM" firstAttribute="centerY" secondItem="rve-TR-Ez2" secondAttribute="centerY" id="gbd-xK-eki"/>
+                    <constraint firstAttribute="bottom" secondItem="evJ-WP-bJ4" secondAttribute="bottom" constant="0.5" id="het-UY-SEb"/>
+                    <constraint firstAttribute="trailing" secondItem="evJ-WP-bJ4" secondAttribute="trailing" id="vUk-rI-nyp"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" name="GithubLightGray"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="avatarImageView" destination="rve-TR-Ez2" id="FO4-Nl-b7L"/>
@@ -61,6 +72,9 @@
     <resources>
         <namedColor name="GitHubTextGray">
             <color red="0.36500000953674316" green="0.3919999897480011" blue="0.42399999499320984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GithubLightGray">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
