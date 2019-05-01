@@ -38,7 +38,7 @@ class RepositoryInformationsInterfaceTests: QuickSpec {
                 }
                 
                 it("Should have the right owner") {
-                    expect(testSubject.repositoryOwnerObservable).first == FakeData.repository.owner.login
+                    expect(testSubject.repositoryOwnerObservable).first == "By : "+FakeData.repository.owner.login
                 }
             }
         }
