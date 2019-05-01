@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainCoordinator.start()
         
         // Setup App window
-        window = UIWindow()//frame: UIScreen.main.bounds
+        window = UIWindow()
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         

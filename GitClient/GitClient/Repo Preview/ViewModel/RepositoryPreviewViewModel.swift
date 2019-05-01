@@ -20,7 +20,7 @@ protocol RepositoryInformationsInterface: class {
 }
 
 protocol RepositoryListsViewModellInterface: class {
-    var repositoryNameObservable: Observable<String> {get}
+    var repositoryName: String {get}
     var collaboratorsViewModel: RepositoryPreviewListViewModel<User> {get}
     var issuesViewModel: RepositoryPreviewListViewModel<Issue> {get}
     var pullRequetsViewModel: RepositoryPreviewListViewModel<Issue> {get}
@@ -33,8 +33,9 @@ class RepositoryPreviewViewModel: RepositoryListsViewModellInterface, Repository
     private let repository:Repository
     
     let informationsTitle: String
+    let repositoryName: String
+
     let repositoryFullNameObservable: Observable<String>
-    let repositoryNameObservable: Observable<String>
     let repositoryDescriptionObservable: Observable<String>
     let repositoryOwnerObservable: Observable<String>
     let repositoryStarsObservable: Observable<String>
@@ -51,7 +52,7 @@ class RepositoryPreviewViewModel: RepositoryListsViewModellInterface, Repository
         self.coordinator = coordinator
         self.repository = repository
         
-        repositoryNameObservable = Observable.just(repository.name)
+        repositoryName = repository.name
         repositoryFullNameObservable = Observable.just(repository.fullName)
         repositoryDescriptionObservable = Observable.just(repository.description)
         repositoryOwnerObservable = Observable.just(R.string.localizable.repositoryPreviewOwner()+repository.owner.login)

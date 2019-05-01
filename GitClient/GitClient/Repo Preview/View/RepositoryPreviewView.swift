@@ -17,6 +17,7 @@ class RepositoryPreviewView: ButtonBarPagerTabStripViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = viewModel?.repositoryName
         buttonBarPagerCustomAppearance()
     }
     
@@ -31,11 +32,7 @@ class RepositoryPreviewView: ButtonBarPagerTabStripViewController {
         guard let viewModel = viewModel else {
             fatalError("ViewModel should be implemented for RepositoryPreviewView")
         }
-        
-        if let navigationController = navigationController {
-            viewModel.repositoryNameObservable.bind(to: navigationController.rx.title).disposed(by: disposeBag)
-        }
-        
+
         let informationsView = RepositoryInformationsView()
         informationsView.viewModel = viewModel as? RepositoryInformationsInterface
         

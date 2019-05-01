@@ -58,11 +58,6 @@ class SearchRepositoryView: UIViewController {
         viewModel.loadingObservable
             .bind(to: activiryIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
-
-        #warning("Fix alert message")
-        viewModel.alertObservable.subscribe { [weak self] in
-            self?.alert(withMessage: "test")
-            }.disposed(by: disposeBag)
     }
     
 }
