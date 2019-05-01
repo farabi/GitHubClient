@@ -1,7 +1,14 @@
 # GitHubClient
 
-
 - GitHub client iOS application.
+
+## Features 
+
+- Search for a public GitHub repository.
+- Display the repository overview.
+- List of issues.
+- List of Contributors.
+- List of open pull requests.
 
 ## Swift Version
 
@@ -9,10 +16,11 @@ This project is built on XCode 10.2 and Swift 5.
 
 ## Design patterns
 
-- The application was done according to MVVM architecture in combination with coordinator pattern for navigation screens.
+- The application was done according to MVVM architecture.
+- Coordinator pattern for screens navigation. [More info](https://medium.com/@saad.eloulladi/ios-coordinator-pattern-in-swift-39a15aa3b01b)
 
 <aside class="notice">
-I preferred MVVM over VIPER or VIP due to the reactive nature of the search feature, and  also for the the project size.
+ℹ️ I preferred MVVM over VIPER or VIP due to the reactive nature of the search feature, and  also for the the project size.
 </aside>
 
 ## CocoaPods
@@ -36,7 +44,7 @@ No need to run pod install, libraries are already included. [Here is why](https:
 ### Test coverage
 
 <aside class="warning">
-⚠️  Generated classes and view are not included in the test coverage report.
+⚠️  Generated classes and views are not included in the test coverage report.
 </aside>
 
 
